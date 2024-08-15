@@ -1,0 +1,849 @@
+Name: absl-py
+Version: 2.1.0
+Summary: Abseil Python Common Libraries, see https://github.com/abseil/abseil-py.
+Home-page: https://github.com/abseil/abseil-py
+Author: The Abseil Authors
+Author-email: 
+License: Apache 2.0
+Location: /usr/local/envs/lsd-env/lib/python3.7/site-packages
+Requires: 
+Required-by: tensorboard, tensorflow
+Name: astor
+Version: 0.8.1
+Summary: Read/rewrite/write Python ASTs
+Home-page: https://github.com/berkerpeksag/astor
+Author: Patrick Maupin
+Author-email: pmaupin@gmail.com
+License: BSD-3-Clause
+Location: /usr/local/envs/lsd-env/lib/python3.7/site-packages
+Requires: 
+Required-by: tensorflow
+Name: audioread
+Version: 3.0.1
+Summary: Multi-library, cross-platform audio decoding.
+Home-page: 
+Author: 
+Author-email: Adrian Sampson <adrian@radbox.org>
+License: 
+Location: /usr/local/envs/lsd-env/lib/python3.7/site-packages
+Requires: 
+Required-by: librosa
+Name: beautifulsoup4
+Version: 4.12.3
+Summary: Screen-scraping library
+Home-page: 
+Author: 
+Author-email: Leonard Richardson <leonardr@segfault.org>
+License: MIT License
+Location: /usr/local/envs/lsd-env/lib/python3.7/site-packages
+Requires: soupsieve
+Required-by: gdown
+Name: cached-property
+Version: 1.5.2
+Summary: A decorator for caching properties in classes.
+Home-page: https://github.com/pydanny/cached-property
+Author: Daniel Greenfeld
+Author-email: pydanny@gmail.com
+License: BSD
+Location: /usr/local/envs/lsd-env/lib/python3.7/site-packages
+Requires: 
+Required-by: pygit2
+Name: certifi
+Version: 2022.12.7
+Summary: Python package for providing Mozilla's CA Bundle.
+Home-page: https://github.com/certifi/python-certifi
+Author: Kenneth Reitz
+Author-email: me@kennethreitz.com
+License: MPL-2.0
+Location: /usr/local/envs/lsd-env/lib/python3.7/site-packages
+Requires: 
+Required-by: requests
+Name: cffi
+Version: 1.15.1
+Summary: Foreign Function Interface for Python calling C code.
+Home-page: http://cffi.readthedocs.org
+Author: Armin Rigo, Maciej Fijalkowski
+Author-email: python-cffi@googlegroups.com
+License: MIT
+Location: /usr/local/envs/lsd-env/lib/python3.7/site-packages
+Requires: pycparser
+Required-by: pygit2, soundfile
+Name: charset-normalizer
+Version: 3.3.2
+Summary: The Real First Universal Charset Detector. Open, modern and actively maintained alternative to Chardet.
+Home-page: https://github.com/Ousret/charset_normalizer
+Author: Ahmed TAHRI
+Author-email: ahmed.tahri@cloudnursery.dev
+License: MIT
+Location: /usr/local/envs/lsd-env/lib/python3.7/site-packages
+Requires: 
+Required-by: requests
+Name: click
+Version: 8.1.7
+Summary: Composable command line interface toolkit
+Home-page: https://palletsprojects.com/p/click/
+Author: 
+Author-email: 
+License: BSD-3-Clause
+Location: /usr/local/envs/lsd-env/lib/python3.7/site-packages
+Requires: importlib-metadata
+Required-by: 
+Name: decorator
+Version: 4.4.2
+Summary: Decorators for Humans
+Home-page: https://github.com/micheles/decorator
+Author: Michele Simionato
+Author-email: michele.simionato@gmail.com
+License: new BSD License
+Location: /usr/local/envs/lsd-env/lib/python3.7/site-packages
+Requires: 
+Required-by: librosa, moviepy
+Name: filelock
+Version: 3.12.2
+Summary: A platform independent file lock.
+Home-page: 
+Author: 
+Author-email: 
+License: 
+Location: /usr/local/envs/lsd-env/lib/python3.7/site-packages
+Requires: 
+Required-by: gdown
+Name: ftfy
+Version: 6.1.1
+Summary: Fixes mojibake and other problems with Unicode, after the fact
+Home-page: 
+Author: Robyn Speer
+Author-email: rspeer@arborelia.net
+License: MIT
+Location: /usr/local/envs/lsd-env/lib/python3.7/site-packages
+Requires: wcwidth
+Required-by: 
+Name: gast
+Version: 0.2.2
+Summary: Python AST that abstracts the underlying Python version
+Home-page: https://github.com/serge-sans-paille/gast/
+Author: serge-sans-paille
+Author-email: serge.guelton@telecom-bretagne.eu
+License: BSD 3-Clause
+Location: /usr/local/envs/lsd-env/lib/python3.7/site-packages
+Requires: 
+Required-by: tensorflow
+Name: gdown
+Version: 4.7.3
+Summary: Google Drive direct download of big files.
+Home-page: http://github.com/wkentaro/gdown
+Author: Kentaro Wada
+Author-email: www.kentaro.wada@gmail.com
+License: MIT
+Location: /usr/local/envs/lsd-env/lib/python3.7/site-packages
+Requires: beautifulsoup4, filelock, requests, six, tqdm
+Required-by: lucidsonicdreams
+Name: google-pasta
+Version: 0.2.0
+Summary: pasta is an AST-based Python refactoring library
+Home-page: https://github.com/google/pasta
+Author: Nick Smith
+Author-email: smithnick@google.com
+License: Apache 2.0
+Location: /usr/local/envs/lsd-env/lib/python3.7/site-packages
+Requires: six
+Required-by: tensorflow
+Name: grpcio
+Version: 1.62.3
+Summary: HTTP/2-based RPC framework
+Home-page: https://grpc.io
+Author: The gRPC Authors
+Author-email: grpc-io@googlegroups.com
+License: Apache License 2.0
+Location: /usr/local/envs/lsd-env/lib/python3.7/site-packages
+Requires: 
+Required-by: tensorboard, tensorflow
+Name: h5py
+Version: 3.8.0
+Summary: Read and write HDF5 files from Python
+Home-page: 
+Author: 
+Author-email: Andrew Collette <andrew.collette@gmail.com>
+License: BSD-3-Clause
+Location: /usr/local/envs/lsd-env/lib/python3.7/site-packages
+Requires: numpy
+Required-by: Keras-Applications
+Name: idna
+Version: 3.7
+Summary: Internationalized Domain Names in Applications (IDNA)
+Home-page: 
+Author: 
+Author-email: Kim Davies <kim+pypi@gumleaf.org>
+License: 
+Location: /usr/local/envs/lsd-env/lib/python3.7/site-packages
+Requires: 
+Required-by: requests
+Name: imageio
+Version: 2.31.2
+Summary: Library for reading and writing a wide range of image, video, scientific, and volumetric data formats.
+Home-page: https://github.com/imageio/imageio
+Author: imageio contributors
+Author-email: almar.klein@gmail.com
+License: BSD-2-Clause
+Location: /usr/local/envs/lsd-env/lib/python3.7/site-packages
+Requires: numpy, pillow
+Required-by: moviepy, scikit-image
+Name: imageio-ffmpeg
+Version: 0.5.1
+Summary: FFMPEG wrapper for Python
+Home-page: https://github.com/imageio/imageio-ffmpeg
+Author: imageio contributors
+Author-email: almar.klein@gmail.com
+License: BSD-2-Clause
+Location: /usr/local/envs/lsd-env/lib/python3.7/site-packages
+Requires: setuptools
+Required-by: moviepy
+Name: importlib-metadata
+Version: 6.7.0
+Summary: Read metadata from Python packages
+Home-page: https://github.com/python/importlib_metadata
+Author: Jason R. Coombs
+Author-email: jaraco@jaraco.com
+License: 
+Location: /usr/local/envs/lsd-env/lib/python3.7/site-packages
+Requires: typing-extensions, zipp
+Required-by: click, Markdown, numba
+Name: importlib-resources
+Version: 5.12.0
+Summary: Read resources from Python packages
+Home-page: https://github.com/python/importlib_resources
+Author: Barry Warsaw
+Author-email: barry@python.org
+License: 
+Location: /usr/local/envs/lsd-env/lib/python3.7/site-packages
+Requires: zipp
+Required-by: resampy
+Name: joblib
+Version: 1.3.2
+Summary: Lightweight pipelining with Python functions
+Home-page: 
+Author: 
+Author-email: Gael Varoquaux <gael.varoquaux@normalesup.org>
+License: BSD 3-Clause
+Location: /usr/local/envs/lsd-env/lib/python3.7/site-packages
+Requires: 
+Required-by: librosa, scikit-learn
+Name: Keras-Applications
+Version: 1.0.8
+Summary: Reference implementations of popular deep learning models
+Home-page: https://github.com/keras-team/keras-applications
+Author: Keras Team
+Author-email: 
+License: MIT
+Location: /usr/local/envs/lsd-env/lib/python3.7/site-packages
+Requires: h5py, numpy
+Required-by: tensorflow
+Name: Keras-Preprocessing
+Version: 1.1.2
+Summary: Easy data preprocessing and data augmentation for deep learning models
+Home-page: https://github.com/keras-team/keras-preprocessing
+Author: Keras Team
+Author-email: 
+License: MIT
+Location: /usr/local/envs/lsd-env/lib/python3.7/site-packages
+Requires: numpy, six
+Required-by: tensorflow
+Name: librosa
+Version: 0.8.0
+Summary: Python module for audio and music processing
+Home-page: https://librosa.org
+Author: Brian McFee
+Author-email: brian.mcfee@nyu.edu
+License: ISC
+Location: /usr/local/envs/lsd-env/lib/python3.7/site-packages
+Requires: audioread, decorator, joblib, numba, numpy, pooch, resampy, scikit-learn, scipy, soundfile
+Required-by: lucidsonicdreams
+Name: llvmlite
+Version: 0.39.1
+Summary: lightweight wrapper around basic LLVM functionality
+Home-page: http://llvmlite.readthedocs.io
+Author: 
+Author-email: 
+License: BSD
+Location: /usr/local/envs/lsd-env/lib/python3.7/site-packages
+Requires: 
+Required-by: numba
+Name: lucidsonicdreams
+Version: 0.4
+Summary: Syncs GAN-generated visuals to music
+Home-page: https://github.com/mikaelalafriz/lucid-sonic-dreams
+Author: Alain Mikael Alafriz
+Author-email: mikaelalafriz@gmail.com
+License: 
+Location: /usr/local/envs/lsd-env/lib/python3.7/site-packages/lucidsonicdreams-0.4-py3.7.egg
+Requires: gdown, librosa, mega.py, moviepy, numpy, pandas, Pillow, pygit2, requests, scikit-image, scipy, SoundFile, torch, tqdm
+Required-by: 
+Name: Markdown
+Version: 3.4.4
+Summary: Python implementation of John Gruber's Markdown.
+Home-page: 
+Author: Manfred Stienstra, Yuri Takhteyev
+Author-email: Waylan limberg <python.markdown@gmail.com>
+License: Copyright 2007, 2008 The Python Markdown Project (v. 1.7 and later)
+        Copyright 2004, 2005, 2006 Yuri Takhteyev (v. 0.2-1.6b)
+        Copyright 2004 Manfred Stienstra (the original version)
+        
+        All rights reserved.
+        
+        Redistribution and use in source and binary forms, with or without
+        modification, are permitted provided that the following conditions are met:
+        
+        * Redistributions of source code must retain the above copyright
+          notice, this list of conditions and the following disclaimer.
+        * Redistributions in binary form must reproduce the above copyright
+          notice, this list of conditions and the following disclaimer in the
+          documentation and/or other materials provided with the distribution.
+        * Neither the name of the Python Markdown Project nor the
+          names of its contributors may be used to endorse or promote products
+          derived from this software without specific prior written permission.
+        
+        THIS SOFTWARE IS PROVIDED BY THE PYTHON MARKDOWN PROJECT ''AS IS'' AND ANY
+        EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+        WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+        DISCLAIMED. IN NO EVENT SHALL ANY CONTRIBUTORS TO THE PYTHON MARKDOWN PROJECT
+        BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+        CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+        SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+        INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+        CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+        ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+        POSSIBILITY OF SUCH DAMAGE.
+        
+Location: /usr/local/envs/lsd-env/lib/python3.7/site-packages
+Requires: importlib-metadata
+Required-by: tensorboard
+Name: MarkupSafe
+Version: 2.1.5
+Summary: Safely add untrusted strings to HTML/XML markup.
+Home-page: https://palletsprojects.com/p/markupsafe/
+Author: 
+Author-email: 
+License: BSD-3-Clause
+Location: /usr/local/envs/lsd-env/lib/python3.7/site-packages
+Requires: 
+Required-by: Werkzeug
+Name: mega.py
+Version: 1.0.8
+Summary: Python lib for the Mega.co.nz API
+Home-page: https://github.com/odwyersoftware/mega.py
+Author: O'Dwyer Software
+Author-email: hello@odwyer.software
+License: Creative Commons Attribution-Noncommercial-Share Alike license
+Location: /usr/local/envs/lsd-env/lib/python3.7/site-packages
+Requires: pathlib, pycryptodome, requests, tenacity
+Required-by: lucidsonicdreams
+Name: moviepy
+Version: 1.0.3
+Summary: Video editing with Python
+Home-page: https://zulko.github.io/moviepy/
+Author: Zulko 2017
+Author-email: 
+License: MIT License
+Location: /usr/local/envs/lsd-env/lib/python3.7/site-packages
+Requires: decorator, imageio, imageio-ffmpeg, numpy, numpy, proglog, requests, tqdm
+Required-by: lucidsonicdreams
+Name: networkx
+Version: 2.6.3
+Summary: Python package for creating and manipulating graphs and networks
+Home-page: https://networkx.org/
+Author: Aric Hagberg
+Author-email: hagberg@lanl.gov
+License: UNKNOWN
+Location: /usr/local/envs/lsd-env/lib/python3.7/site-packages
+Requires: 
+Required-by: scikit-image
+Name: ninja
+Version: 1.10.2
+Summary: Ninja is a small build system with a focus on speed
+Home-page: http://ninja-build.org/
+Author: Jean-Christophe Fillion-Robin
+Author-email: scikit-build@googlegroups.com
+License: Apache 2.0
+Location: /usr/local/envs/lsd-env/lib/python3.7/site-packages
+Requires: 
+Required-by: 
+Name: numba
+Version: 0.56.4
+Summary: compiling Python code using LLVM
+Home-page: https://numba.pydata.org
+Author: 
+Author-email: 
+License: BSD
+Location: /usr/local/envs/lsd-env/lib/python3.7/site-packages
+Requires: importlib-metadata, llvmlite, numpy, setuptools
+Required-by: librosa, resampy
+Name: numpy
+Version: 1.21.6
+Summary: NumPy is the fundamental package for array computing with Python.
+Home-page: https://www.numpy.org
+Author: Travis E. Oliphant et al.
+Author-email: 
+License: BSD
+Location: /usr/local/envs/lsd-env/lib/python3.7/site-packages
+Requires: 
+Required-by: h5py, imageio, Keras-Applications, Keras-Preprocessing, librosa, lucidsonicdreams, moviepy, numba, opensimplex, opt-einsum, pandas, PyWavelets, resampy, scikit-image, scikit-learn, scipy, tensorboard, tensorflow, tifffile, torchvision
+Name: opensimplex
+Version: 0.4.2
+Summary: OpenSimplex n-dimensional gradient noise function.
+Home-page: https://github.com/lmas/opensimplex
+Author: Alex
+Author-email: opensimplex@larus.se
+License: MIT
+Location: /usr/local/envs/lsd-env/lib/python3.7/site-packages
+Requires: numpy
+Required-by: 
+Name: opt-einsum
+Version: 3.3.0
+Summary: Optimizing numpys einsum function
+Home-page: https://github.com/dgasmith/opt_einsum
+Author: Daniel Smith
+Author-email: dgasmith@icloud.com
+License: MIT
+Location: /usr/local/envs/lsd-env/lib/python3.7/site-packages
+Requires: numpy
+Required-by: tensorflow
+Name: packaging
+Version: 24.0
+Summary: Core utilities for Python packages
+Home-page: 
+Author: 
+Author-email: Donald Stufft <donald@stufft.io>
+License: 
+Location: /usr/local/envs/lsd-env/lib/python3.7/site-packages
+Requires: 
+Required-by: pooch, scikit-image
+Name: pandas
+Version: 1.3.5
+Summary: Powerful data structures for data analysis, time series, and statistics
+Home-page: https://pandas.pydata.org
+Author: The Pandas Development Team
+Author-email: pandas-dev@python.org
+License: BSD-3-Clause
+Location: /usr/local/envs/lsd-env/lib/python3.7/site-packages
+Requires: numpy, python-dateutil, pytz
+Required-by: lucidsonicdreams
+Name: pathlib
+Version: 1.0.1
+Summary: Object-oriented filesystem paths
+Home-page: https://pathlib.readthedocs.org/
+Author: Antoine Pitrou
+Author-email: solipsis@pitrou.net
+License: MIT License
+Location: /usr/local/envs/lsd-env/lib/python3.7/site-packages
+Requires: 
+Required-by: mega.py
+Name: Pillow
+Version: 9.5.0
+Summary: Python Imaging Library (Fork)
+Home-page: https://python-pillow.org
+Author: Jeffrey A. Clark (Alex)
+Author-email: aclark@aclark.net
+License: HPND
+Location: /usr/local/envs/lsd-env/lib/python3.7/site-packages
+Requires: 
+Required-by: imageio, lucidsonicdreams, scikit-image, torchvision
+Name: pip
+Version: 22.3.1
+Summary: The PyPA recommended tool for installing Python packages.
+Home-page: https://pip.pypa.io/
+Author: The pip developers
+Author-email: distutils-sig@python.org
+License: MIT
+Location: /usr/local/envs/lsd-env/lib/python3.7/site-packages
+Requires: 
+Required-by: 
+Name: platformdirs
+Version: 4.0.0
+Summary: A small Python package for determining appropriate platform-specific dirs, e.g. a "user data dir".
+Home-page: 
+Author: 
+Author-email: 
+License: 
+Location: /usr/local/envs/lsd-env/lib/python3.7/site-packages
+Requires: typing-extensions
+Required-by: pooch
+Name: pooch
+Version: 1.8.2
+Summary: A friend to fetch your data files
+Home-page: 
+Author: 
+Author-email: The Pooch Developers <fatiandoaterra@protonmail.com>
+License: BSD-3-Clause
+Location: /usr/local/envs/lsd-env/lib/python3.7/site-packages
+Requires: packaging, platformdirs, requests
+Required-by: librosa
+Name: proglog
+Version: 0.1.10
+Summary: Log and progress bar manager for console, notebooks, web...
+Home-page: 
+Author: Zulko
+Author-email: 
+License: MIT
+Location: /usr/local/envs/lsd-env/lib/python3.7/site-packages
+Requires: tqdm
+Required-by: moviepy
+Name: protobuf
+Version: 4.24.4
+Summary: 
+Home-page: https://developers.google.com/protocol-buffers/
+Author: protobuf@googlegroups.com
+Author-email: protobuf@googlegroups.com
+License: 3-Clause BSD License
+Location: /usr/local/envs/lsd-env/lib/python3.7/site-packages
+Requires: 
+Required-by: tensorboard, tensorflow
+Name: psutil
+Version: 6.0.0
+Summary: Cross-platform lib for process and system monitoring in Python.
+Home-page: https://github.com/giampaolo/psutil
+Author: Giampaolo Rodola
+Author-email: g.rodola@gmail.com
+License: BSD-3-Clause
+Location: /usr/local/envs/lsd-env/lib/python3.7/site-packages
+Requires: 
+Required-by: 
+Name: pycparser
+Version: 2.21
+Summary: C parser in Python
+Home-page: https://github.com/eliben/pycparser
+Author: Eli Bendersky
+Author-email: eliben@gmail.com
+License: BSD
+Location: /usr/local/envs/lsd-env/lib/python3.7/site-packages
+Requires: 
+Required-by: cffi
+Name: pycryptodome
+Version: 3.20.0
+Summary: Cryptographic library for Python
+Home-page: https://www.pycryptodome.org
+Author: Helder Eijs
+Author-email: helderijs@gmail.com
+License: BSD, Public Domain
+Location: /usr/local/envs/lsd-env/lib/python3.7/site-packages
+Requires: 
+Required-by: mega.py
+Name: pygit2
+Version: 1.10.1
+Summary: Python bindings for libgit2.
+Home-page: https://github.com/libgit2/pygit2
+Author: 
+Author-email: 
+License: GPLv2 with linking exception
+Location: /usr/local/envs/lsd-env/lib/python3.7/site-packages
+Requires: cached-property, cffi
+Required-by: lucidsonicdreams
+Name: PySocks
+Version: 1.7.1
+Summary: A Python SOCKS client module. See https://github.com/Anorov/PySocks for more information.
+Home-page: https://github.com/Anorov/PySocks
+Author: Anorov
+Author-email: anorov.vorona@gmail.com
+License: BSD
+Location: /usr/local/envs/lsd-env/lib/python3.7/site-packages
+Requires: 
+Required-by: 
+Name: python-dateutil
+Version: 2.9.0.post0
+Summary: Extensions to the standard Python datetime module
+Home-page: https://github.com/dateutil/dateutil
+Author: Gustavo Niemeyer
+Author-email: gustavo@niemeyer.net
+License: Dual License
+Location: /usr/local/envs/lsd-env/lib/python3.7/site-packages
+Requires: six
+Required-by: pandas
+Name: pytz
+Version: 2024.1
+Summary: World timezone definitions, modern and historical
+Home-page: http://pythonhosted.org/pytz
+Author: Stuart Bishop
+Author-email: stuart@stuartbishop.net
+License: MIT
+Location: /usr/local/envs/lsd-env/lib/python3.7/site-packages
+Requires: 
+Required-by: pandas
+Name: PyWavelets
+Version: 1.3.0
+Summary: PyWavelets, wavelet transform module
+Home-page: https://github.com/PyWavelets/pywt
+Author: 
+Author-email: 
+License: MIT
+Location: /usr/local/envs/lsd-env/lib/python3.7/site-packages
+Requires: numpy
+Required-by: scikit-image
+Name: requests
+Version: 2.31.0
+Summary: Python HTTP for Humans.
+Home-page: https://requests.readthedocs.io
+Author: Kenneth Reitz
+Author-email: me@kennethreitz.org
+License: Apache 2.0
+Location: /usr/local/envs/lsd-env/lib/python3.7/site-packages
+Requires: certifi, charset-normalizer, idna, urllib3
+Required-by: gdown, lucidsonicdreams, mega.py, moviepy, pooch
+Name: resampy
+Version: 0.4.3
+Summary: Efficient signal resampling
+Home-page: https://github.com/bmcfee/resampy
+Author: Brian McFee
+Author-email: brian.mcfee@nyu.edu
+License: ISC
+Location: /usr/local/envs/lsd-env/lib/python3.7/site-packages
+Requires: importlib-resources, numba, numpy
+Required-by: librosa
+Name: scikit-image
+Version: 0.19.3
+Summary: Image processing in Python
+Home-page: https://scikit-image.org
+Author: 
+Author-email: 
+License: Modified BSD
+Location: /usr/local/envs/lsd-env/lib/python3.7/site-packages
+Requires: imageio, networkx, numpy, packaging, pillow, PyWavelets, scipy, tifffile
+Required-by: lucidsonicdreams
+Name: scikit-learn
+Version: 1.0.2
+Summary: A set of python modules for machine learning and data mining
+Home-page: http://scikit-learn.org
+Author: 
+Author-email: 
+License: new BSD
+Location: /usr/local/envs/lsd-env/lib/python3.7/site-packages
+Requires: joblib, numpy, scipy, threadpoolctl
+Required-by: librosa
+Name: scipy
+Version: 1.7.3
+Summary: SciPy: Scientific Library for Python
+Home-page: https://www.scipy.org
+Author: 
+Author-email: 
+License: BSD
+Location: /usr/local/envs/lsd-env/lib/python3.7/site-packages
+Requires: numpy
+Required-by: librosa, lucidsonicdreams, scikit-image, scikit-learn
+Name: setuptools
+Version: 65.6.3
+Summary: Easily download, build, install, upgrade, and uninstall Python packages
+Home-page: https://github.com/pypa/setuptools
+Author: Python Packaging Authority
+Author-email: distutils-sig@python.org
+License: 
+Location: /usr/local/envs/lsd-env/lib/python3.7/site-packages
+Requires: 
+Required-by: imageio-ffmpeg, numba, tensorboard
+Name: six
+Version: 1.16.0
+Summary: Python 2 and 3 compatibility utilities
+Home-page: https://github.com/benjaminp/six
+Author: Benjamin Peterson
+Author-email: benjamin@python.org
+License: MIT
+Location: /usr/local/envs/lsd-env/lib/python3.7/site-packages
+Requires: 
+Required-by: gdown, google-pasta, Keras-Preprocessing, python-dateutil, tenacity, tensorboard, tensorflow
+Name: soundfile
+Version: 0.12.1
+Summary: An audio library based on libsndfile, CFFI and NumPy
+Home-page: https://github.com/bastibe/python-soundfile
+Author: Bastian Bechtold
+Author-email: basti@bastibe.de
+License: BSD 3-Clause License
+Location: /usr/local/envs/lsd-env/lib/python3.7/site-packages/soundfile-0.12.1-py3.7-linux-x86_64.egg
+Requires: cffi
+Required-by: librosa, lucidsonicdreams
+Name: soupsieve
+Version: 2.4.1
+Summary: A modern CSS selector implementation for Beautiful Soup.
+Home-page: 
+Author: 
+Author-email: Isaac Muse <Isaac.Muse@gmail.com>
+License: 
+Location: /usr/local/envs/lsd-env/lib/python3.7/site-packages
+Requires: 
+Required-by: beautifulsoup4
+Name: tenacity
+Version: 5.1.5
+Summary: Retry code until it succeeeds
+Home-page: https://github.com/jd/tenacity
+Author: Julien Danjou
+Author-email: julien@danjou.info
+License: Apache 2.0
+Location: /usr/local/envs/lsd-env/lib/python3.7/site-packages
+Requires: six
+Required-by: mega.py
+Name: tensorboard
+Version: 1.15.0
+Summary: TensorBoard lets you watch Tensors Flow
+Home-page: https://github.com/tensorflow/tensorboard
+Author: Google Inc.
+Author-email: packages@tensorflow.org
+License: Apache 2.0
+Location: /usr/local/envs/lsd-env/lib/python3.7/site-packages
+Requires: absl-py, grpcio, markdown, numpy, protobuf, setuptools, six, werkzeug, wheel
+Required-by: tensorflow
+Name: tensorflow
+Version: 1.15.0
+Summary: TensorFlow is an open source machine learning framework for everyone.
+Home-page: https://www.tensorflow.org/
+Author: Google Inc.
+Author-email: packages@tensorflow.org
+License: Apache 2.0
+Location: /usr/local/envs/lsd-env/lib/python3.7/site-packages
+Requires: absl-py, astor, gast, google-pasta, grpcio, keras-applications, keras-preprocessing, numpy, opt-einsum, protobuf, six, tensorboard, tensorflow-estimator, termcolor, wheel, wrapt
+Required-by: 
+Name: tensorflow-estimator
+Version: 1.15.1
+Summary: TensorFlow Estimator.
+Home-page: https://www.tensorflow.org/
+Author: Google Inc.
+Author-email: UNKNOWN
+License: Apache 2.0
+Location: /usr/local/envs/lsd-env/lib/python3.7/site-packages
+Requires: 
+Required-by: tensorflow
+Name: termcolor
+Version: 2.3.0
+Summary: ANSI color formatting for output in terminal
+Home-page: 
+Author: 
+Author-email: Konstantin Lepa <konstantin.lepa@gmail.com>
+License: MIT
+Location: /usr/local/envs/lsd-env/lib/python3.7/site-packages
+Requires: 
+Required-by: tensorflow
+Name: threadpoolctl
+Version: 3.1.0
+Summary: threadpoolctl
+Home-page: https://github.com/joblib/threadpoolctl
+Author: Thomas Moreau
+Author-email: thomas.moreau.2010@gmail.com
+License: BSD-3-Clause
+Location: /usr/local/envs/lsd-env/lib/python3.7/site-packages
+Requires: 
+Required-by: scikit-learn
+Name: tifffile
+Version: 2021.11.2
+Summary: Read and write TIFF files
+Home-page: https://www.lfd.uci.edu/~gohlke/
+Author: Christoph Gohlke
+Author-email: cgohlke@uci.edu
+License: BSD
+Location: /usr/local/envs/lsd-env/lib/python3.7/site-packages
+Requires: numpy
+Required-by: scikit-image
+Name: timm
+Version: 0.4.12
+Summary: (Unofficial) PyTorch Image Models
+Home-page: https://github.com/rwightman/pytorch-image-models
+Author: Ross Wightman
+Author-email: hello@rwightman.com
+License: UNKNOWN
+Location: /usr/local/envs/lsd-env/lib/python3.7/site-packages
+Requires: torch, torchvision
+Required-by: 
+Name: torch
+Version: 1.9.0+cu111
+Summary: Tensors and Dynamic neural networks in Python with strong GPU acceleration
+Home-page: https://pytorch.org/
+Author: PyTorch Team
+Author-email: packages@pytorch.org
+License: BSD-3
+Location: /usr/local/envs/lsd-env/lib/python3.7/site-packages
+Requires: typing-extensions
+Required-by: lucidsonicdreams, timm, torchvision
+Name: torchvision
+Version: 0.10.0+cu111
+Summary: image and video datasets and models for torch deep learning
+Home-page: https://github.com/pytorch/vision
+Author: PyTorch Core Team
+Author-email: soumith@pytorch.org
+License: BSD
+Location: /usr/local/envs/lsd-env/lib/python3.7/site-packages
+Requires: numpy, pillow, torch
+Required-by: timm
+Name: tqdm
+Version: 4.66.5
+Summary: Fast, Extensible Progress Meter
+Home-page: 
+Author: 
+Author-email: 
+License: MPL-2.0 AND MIT
+Location: /usr/local/envs/lsd-env/lib/python3.7/site-packages
+Requires: 
+Required-by: gdown, lucidsonicdreams, moviepy, proglog
+Name: typing_extensions
+Version: 4.7.1
+Summary: Backported and Experimental Type Hints for Python 3.7+
+Home-page: 
+Author: 
+Author-email: "Guido van Rossum, Jukka Lehtosalo, Łukasz Langa, Michael Lee" <levkivskyi@gmail.com>
+License: 
+Location: /usr/local/envs/lsd-env/lib/python3.7/site-packages
+Requires: 
+Required-by: importlib-metadata, platformdirs, torch
+Name: urllib3
+Version: 2.0.7
+Summary: HTTP library with thread-safe connection pooling, file post, and more.
+Home-page: 
+Author: 
+Author-email: Andrey Petrov <andrey.petrov@shazow.net>
+License: 
+Location: /usr/local/envs/lsd-env/lib/python3.7/site-packages
+Requires: 
+Required-by: requests
+Name: wcwidth
+Version: 0.2.13
+Summary: Measures the displayed width of unicode strings in a terminal
+Home-page: https://github.com/jquast/wcwidth
+Author: Jeff Quast
+Author-email: contact@jeffquast.com
+License: MIT
+Location: /usr/local/envs/lsd-env/lib/python3.7/site-packages
+Requires: 
+Required-by: ftfy
+Name: Werkzeug
+Version: 2.2.3
+Summary: The comprehensive WSGI web application library.
+Home-page: https://palletsprojects.com/p/werkzeug/
+Author: Armin Ronacher
+Author-email: armin.ronacher@active-4.com
+License: BSD-3-Clause
+Location: /usr/local/envs/lsd-env/lib/python3.7/site-packages
+Requires: MarkupSafe
+Required-by: tensorboard
+Name: wheel
+Version: 0.38.4
+Summary: A built-package format for Python
+Home-page: https://github.com/pypa/wheel
+Author: Daniel Holth
+Author-email: dholth@fastmail.fm
+License: MIT
+Location: /usr/local/envs/lsd-env/lib/python3.7/site-packages
+Requires: 
+Required-by: tensorboard, tensorflow
+Name: wrapt
+Version: 1.16.0
+Summary: Module for decorators, wrappers and monkey patching.
+Home-page: https://github.com/GrahamDumpleton/wrapt
+Author: Graham Dumpleton
+Author-email: Graham.Dumpleton@gmail.com
+License: BSD
+Location: /usr/local/envs/lsd-env/lib/python3.7/site-packages
+Requires: 
+Required-by: tensorflow
+Name: zipp
+Version: 3.15.0
+Summary: Backport of pathlib-compatible object wrapper for zip files
+Home-page: https://github.com/jaraco/zipp
+Author: Jason R. Coombs
+Author-email: jaraco@jaraco.com
+License: 
+Location: /usr/local/envs/lsd-env/lib/python3.7/site-packages
+Requires: 
+Required-by: importlib-metadata, importlib-resources
