@@ -5,12 +5,12 @@ class InputParamLucid:
     @classmethod
     def INPUT_TYPES(cls):
            
-        Stylegan2ModelList= ["model1", "model2", "model3"]
+        Stylegan2ModelList= ["/content/drive/MyDrive/sonic/iniasstylefinal.pkl", "/content/drive/MyDrive/sonic/DorfinalModel.pkl", "/content/drive/MyDrive/sonic/VisionaryArtm.pkl", "/content/drive/MyDrive/sonic/wikiart.pkl"]
 
 
         data_in = {
             "required": {
-                "model": (Stylegan2ModelList,),
+                "styleganmodel": (Stylegan2ModelList,),
                 "start": (
                     "INT",
                     {
@@ -58,21 +58,21 @@ class InputParamLucid:
         return data_in
 
     RETURN_TYPES = (
-        "MODEL",
-        "INT",
-        "INT",
-        "INT",
-        "BOOLEAN",
-        "BOOLEAN",
-        "FLOAT",
-        "BOOLEAN",
-        "BOOLEAN",
-        "FLOAT",
-        "INT",
+        "STYLE_GAN_MODEL",
+        "START",
+        "DURATION",
+        "SPEED_FPM",
+        "PULSE_PERCUSSIVE",
+        "PULSE_HARMONIC",
+        "PULSE_REACT",
+        "MOTION_HARMONIC",
+        "MOTION_PERCUSSIVE",
+        "MOTION_REACT",
+        "FPS",
     )
 
     RETURN_NAMES = (
-        "model",
+        "styleganmodel",
         "start",
         "duration",
         "speed_fpm",
@@ -91,7 +91,7 @@ class InputParamLucid:
 
     def PassTheParam(
         self,
-        model,
+        styleganmodel,
         start,
         duration,
         speed_fpm,
@@ -104,7 +104,7 @@ class InputParamLucid:
         fps,
     ):
         return (
-            model,
+            styleganmodel,
             start,
             duration,
             speed_fpm,
@@ -118,15 +118,41 @@ class InputParamLucid:
         )
 
 
-
+import cv2
+import numpy as np
+import torch
 import requests
+
+def video_to_frames(video_path):
+    # Open the video file
+    video = cv2.VideoCapture(video_path)
+    
+    frames = []
+    frame_count = 0
+
+    # Loop until the end of the video
+    while video.isOpened():
+        ret, frame = video.read()
+        if not ret:
+            break
+        # Convert the frame to an array-like object (NumPy array)
+        frame_array = np.array(frame)
+        frames.append(frame_array)
+        frame_count += 1
+    
+    # Release the video capture object
+    video.release()
+    
+    return frames
+
+
 
 class APICallNode:
     @classmethod
     def INPUT_TYPES(cls):
         return {
             "required": {
-                "model": ("MODEL",),  # This can be adjusted based on the actual data type
+                "styleganmodel": ("STYLE_GAN_MODEL",), # This can be adjusted based on the actual data type
                 "start": ("START",),
                 "duration": ("DURATION",),
                 "speed_fpm": ("SPEED_FPM",),
@@ -150,23 +176,29 @@ class APICallNode:
                         "default": "/content/testambiant.mp4",
                     },
                 ),
+                "outputfilename": (
+                    "STRING",
+                    {
+                        "default": "/content/resultvideo1.mp4",
+                    },
+                ),
             }
         }
 
-    RETURN_TYPES = ("VIDEO",)
+    RETURN_TYPES = ("BYTESVID",)
     RETURN_NAMES = ("video",)
     FUNCTION = "makeApiCall"
     CATEGORY = "🎶 LucidSonicDream"
 
     def makeApiCall(
-        self, model, start, duration, speed_fpm, pulse_percussive, pulse_harmonic, 
-        pulse_react, motion_harmonic, motion_percussive, motion_react, fps, api_url, song
+        self, styleganmodel, start, duration, speed_fpm, pulse_percussive, pulse_harmonic, 
+        pulse_react, motion_harmonic, motion_percussive, motion_react, fps, api_url, song, outputfilename
     ):
         # Prepare the JSON body for the GET request
         json_body = {
             "song": song,
-            "style": "/content/drive/MyDrive/sonic/iniasstylefinal.pkl",
-            "file_name": "/content/beet3.mp4",
+            "style": styleganmodel,
+            "file_name": outputfilename,
             "start": start,
             "duration": duration,
             "speed_fpm": speed_fpm,
@@ -179,13 +211,113 @@ class APICallNode:
             "fps": fps
         }
 
-        # Send the GET request
+         # Send the GET request
         response = requests.get(api_url, json=json_body)
 
+        # Check if the request was successful
         if response.status_code == 200:
+            print("success")
             video = response.content
+
             return (video,)
+        # # Save the video content to a file
+        #     with open('output_video.mp4', 'wb') as video_file:
+        #         video_file.write(response.content)
+        
+        #     print("success")
+        #     # Example usage
+        #     video_path = 'output_video.mp4'
+        #     frames = video_to_frames(video_path)
+
+        #     # Print shape of the first frame as an example
+        #     if frames:
+        #         print("Number of frames:", len(frames))
+        #         print("Shape of the first frame:", frames[0].shape)
+
+        #         frames_np = np.array(frames)
+
+        #         # Now convert the NumPy array to a PyTorch tensor
+        #         tensorvar = torch.from_numpy(frames_np)
+        #         return (tensorvar,)
+        #     else:
+        #         print("No frames extracted.")
+            
+        
+        # Display the video in the notebook
+        #display(Video('output_video.mp4', embed=True))
         else:
             raise Exception(f"API request failed with status code {response.status_code}")
+        
+
+
+
+
+import os
+import tempfile
+from moviepy.editor import VideoFileClip, AudioFileClip
+
+class SimpleSaveVideoNode:
+    @classmethod
+    def INPUT_TYPES(cls):
+        return {
+            "required": {
+                "input_video_bytes": ("BYTESVID",),
+                "filename_prefix": ("STRING", {"default": "video"}),
+                "save_video": ("BOOLEAN",{"default": False} ),
+                "output_path": ("STRING", {"default": "Downloads"}),
+            }
+        }
+
+    RETURN_TYPES = ()
+    FUNCTION = "saveVideo"
+    OUTPUT_NODE = True
+    CATEGORY = "🎶 LucidSonicDream"
+
+    def saveVideo(self, input_video_bytes, output_path, save_video, filename_prefix):
+        # Ensure output directory exists
+        if not os.path.exists(output_path):
+            os.makedirs(output_path)
+
+        # Create a temporary file to store the input video
+        temp_video_file = tempfile.NamedTemporaryFile(delete=False, suffix=".mp4")
+        temp_video_file.write(input_video_bytes)
+        temp_video_file.close()
+
+        # Load the video
+        video_clip = VideoFileClip(temp_video_file.name)
+        fps = video_clip.fps
+
+        # Generate file paths
+        video_file_path = os.path.join(output_path, f"{filename_prefix}.mp4")
+        preview_video_path = os.path.join(output_path, f"{filename_prefix}_preview.mp4")
+
+        # Add audio if available
+        temp_audio_file = temp_video_file.name.replace(".mp4", ".mp3")
+        if os.path.exists(temp_audio_file):
+            audio_clip = AudioFileClip(temp_audio_file)
+            video_clip = video_clip.set_audio(audio_clip)
+
+        # Always save and display the preview video
+        video_clip.write_videofile(preview_video_path, fps=fps)
+        print(f"Video preview saved to {preview_video_path}")
+
+        # Optionally save the final video
+        if save_video:
+            video_clip.write_videofile(video_file_path, fps=fps)
+            print(f"Video saved to {video_file_path}")
+
+        # Clean up the temporary file
+        os.remove(temp_video_file.name)
+        if os.path.exists(temp_audio_file):
+            os.remove(temp_audio_file)
+
+        # Return the path to the preview video and optionally the saved video
+        result_paths = [preview_video_path]
+        if save_video:
+            result_paths.append(video_file_path)
+
+        return {"ui": {"video": result_paths}}
+        
+        
 
 
