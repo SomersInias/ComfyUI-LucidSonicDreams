@@ -26,7 +26,7 @@ class InputParamLucid:
                         "default": 20,
                         "min": 0,
                         "max": 120,
-                        "step": 10,
+                        "step": 5,
                     },
                 ),
                 "speed_fpm": ("INT", {"default": 20}),
@@ -145,7 +145,7 @@ def video_to_frames(video_path):
     
     return frames
 
-
+import time
 
 class APICallNode:
     @classmethod
@@ -211,40 +211,20 @@ class APICallNode:
             "fps": fps
         }
 
-         # Send the GET request
-        response = requests.get(api_url, json=json_body)
+        # Add a unique query parameter to avoid cached responses
+        #unique_query_param = f"timestamp={int(time.time())}"
+        #full_url = f"{api_url}?{unique_query_param}"
+       
+         # Send the POST request
+        response = requests.post(api_url, json=json_body)
 
         # Check if the request was successful
         if response.status_code == 200:
             print("success")
-            video = response.content
+            video_bytes = response.content
 
-            return (video,)
-        # # Save the video content to a file
-        #     with open('output_video.mp4', 'wb') as video_file:
-        #         video_file.write(response.content)
-        
-        #     print("success")
-        #     # Example usage
-        #     video_path = 'output_video.mp4'
-        #     frames = video_to_frames(video_path)
-
-        #     # Print shape of the first frame as an example
-        #     if frames:
-        #         print("Number of frames:", len(frames))
-        #         print("Shape of the first frame:", frames[0].shape)
-
-        #         frames_np = np.array(frames)
-
-        #         # Now convert the NumPy array to a PyTorch tensor
-        #         tensorvar = torch.from_numpy(frames_np)
-        #         return (tensorvar,)
-        #     else:
-        #         print("No frames extracted.")
-            
-        
-        # Display the video in the notebook
-        #display(Video('output_video.mp4', embed=True))
+            return (video_bytes,)
+     
         else:
             raise Exception(f"API request failed with status code {response.status_code}")
         
@@ -273,50 +253,52 @@ class SimpleSaveVideoNode:
     OUTPUT_NODE = True
     CATEGORY = "🎶 LucidSonicDream"
 
+    
     def saveVideo(self, input_video_bytes, output_path, save_video, filename_prefix):
-        # Ensure output directory exists
+    # Ensure output directory exists
         if not os.path.exists(output_path):
             os.makedirs(output_path)
 
-        # Create a temporary file to store the input video
-        temp_video_file = tempfile.NamedTemporaryFile(delete=False, suffix=".mp4")
-        temp_video_file.write(input_video_bytes)
-        temp_video_file.close()
+    # Create a temporary file to store the input video
+        with tempfile.NamedTemporaryFile(delete=False, suffix=".mp4") as temp_video_file:
+            temp_video_file.write(input_video_bytes)
+            temp_video_file.close()
 
-        # Load the video
-        video_clip = VideoFileClip(temp_video_file.name)
-        fps = video_clip.fps
+            # Load the video
+            video_clip = VideoFileClip(temp_video_file.name)
+            fps = video_clip.fps
 
-        # Generate file paths
-        video_file_path = os.path.join(output_path, f"{filename_prefix}.mp4")
-        preview_video_path = os.path.join(output_path, f"{filename_prefix}_preview.mp4")
+            # Generate file paths
+            video_file_path = os.path.join(output_path, f"{filename_prefix}.mp4")
+            preview_video_path = os.path.join(output_path, f"{filename_prefix}_preview.mp4")
 
-        # Add audio if available
-        temp_audio_file = temp_video_file.name.replace(".mp4", ".mp3")
-        if os.path.exists(temp_audio_file):
-            audio_clip = AudioFileClip(temp_audio_file)
-            video_clip = video_clip.set_audio(audio_clip)
+            # Add audio if available
+            temp_audio_file = temp_video_file.name.replace(".mp4", ".mp3")
+            if os.path.exists(temp_audio_file):
+                audio_clip = AudioFileClip(temp_audio_file)
+                video_clip = video_clip.set_audio(audio_clip)
 
         # Always save and display the preview video
-        video_clip.write_videofile(preview_video_path, fps=fps)
-        print(f"Video preview saved to {preview_video_path}")
+            video_clip.write_videofile(preview_video_path, fps=fps)
+            print(f"Video preview saved to {preview_video_path}")
 
         # Optionally save the final video
-        if save_video:
-            video_clip.write_videofile(video_file_path, fps=fps)
-            print(f"Video saved to {video_file_path}")
+            if save_video:
+                video_clip.write_videofile(video_file_path, fps=fps)
+                print(f"Video saved to {video_file_path}")
 
         # Clean up the temporary file
-        os.remove(temp_video_file.name)
-        if os.path.exists(temp_audio_file):
-            os.remove(temp_audio_file)
+            os.remove(temp_video_file.name)
+            if os.path.exists(temp_audio_file):
+                os.remove(temp_audio_file)
 
         # Return the path to the preview video and optionally the saved video
-        result_paths = [preview_video_path]
-        if save_video:
-            result_paths.append(video_file_path)
+            result_paths = [preview_video_path]
+            if save_video:
+                result_paths.append(video_file_path)
 
         return {"ui": {"video": result_paths}}
+
         
         
 
