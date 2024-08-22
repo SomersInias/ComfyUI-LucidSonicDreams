@@ -1,11 +1,12 @@
 import requests
 
+Stylegan2ModelList= ["/content/drive/MyDrive/sonic/iniasstylefinal.pkl", "/content/drive/MyDrive/sonic/DorfinalModel.pkl", "/content/drive/MyDrive/sonic/VisionaryArtm.pkl", "/content/drive/MyDrive/sonic/wikiart.pkl" , "/content/drive/MyDrive/wikiart.pkl"]
 
 class InputParamLucid:
     @classmethod
     def INPUT_TYPES(cls):
            
-        Stylegan2ModelList= ["/content/drive/MyDrive/sonic/iniasstylefinal.pkl", "/content/drive/MyDrive/sonic/DorfinalModel.pkl", "/content/drive/MyDrive/sonic/VisionaryArtm.pkl", "/content/drive/MyDrive/sonic/wikiart.pkl" , "/content/drive/MyDrive/wikiart.pkl"]
+        
 
 
         data_in = {
@@ -116,6 +117,172 @@ class InputParamLucid:
             motion_react,
             fps,
         )
+
+
+
+class InputParamLucidSecond:
+    @classmethod
+    def INPUT_TYPES(cls):
+           
+        #Stylegan2ModelList= ["/content/drive/MyDrive/sonic/iniasstylefinal.pkl", "/content/drive/MyDrive/sonic/DorfinalModel.pkl", "/content/drive/MyDrive/sonic/VisionaryArtm.pkl", "/content/drive/MyDrive/sonic/wikiart.pkl" , "/content/drive/MyDrive/wikiart.pkl"]
+
+
+        data_in = {
+            "required": {
+                "styleganmodel_prev": ("STYLE_GAN_MODEL",), # This can be adjusted based on the actual data type
+                "start_prev": ("START",),
+                "duration_prev": ("DURATION",),
+                "speed_fpm_prev": ("SPEED_FPM",),
+                "pulse_percussive_prev": ("PULSE_PERCUSSIVE",),
+                "pulse_harmonic_prev": ("PULSE_HARMONIC",),
+                "pulse_react_prev": ("PULSE_REACT",),
+                "motion_harmonic_prev": ("MOTION_HARMONIC",),
+                "motion_percussive_prev": ("MOTION_PERCUSSIVE",),
+                "motion_react_prev": ("MOTION_REACT",),
+                "fps_prev": ("FPS",),
+                "styleganmodel": (Stylegan2ModelList,),
+                "rangestep": ( 
+                    "INT",
+                    {
+                        "default": 10,
+                    },
+                ),
+                "usenewmodel": ("BOOLEAN", {"default": False}),
+                "usenewparam": ("BOOLEAN", {"default": False}),
+                "duration": (
+                    "INT",
+                    {
+                        "default": 20,
+                        "min": 0,
+                        "max": 120,
+                        "step": 5,
+                    },
+                ),
+                "speed_fpm": ("INT", {"default": 20}),
+                "pulse_percussive": ("BOOLEAN", {"default": True}),
+                "pulse_harmonic": ("BOOLEAN", {"default": False}),
+                "pulse_react": (
+                    "FLOAT",
+                    {
+                        "default": 0.5,
+                        "min": 0.0,
+                        "max": 1.0,
+                        "step": 0.1,
+                    },
+                ),
+                "motion_harmonic": ("BOOLEAN", {"default": True}),
+                "motion_percussive": ("BOOLEAN", {"default": False}),
+                "motion_react": (
+                    "FLOAT",
+                    {
+                        "default": 0.5,
+                        "min": 0.0,
+                        "max": 1.0,
+                        "step": 0.1,
+                    },
+                ),
+                "fps": ("INT", {"default": 24}),
+            }
+        }
+        return data_in
+
+    RETURN_TYPES = (
+        "STYLE_GAN_MODEL",
+        "START",
+        "DURATION",
+        "SPEED_FPM",
+        "PULSE_PERCUSSIVE",
+        "PULSE_HARMONIC",
+        "PULSE_REACT",
+        "MOTION_HARMONIC",
+        "MOTION_PERCUSSIVE",
+        "MOTION_REACT",
+        "FPS",
+    )
+
+    RETURN_NAMES = (
+        "styleganmodel",
+        "start",
+        "duration",
+        "speed_fpm",
+        "pulse_percussive",
+        "pulse_harmonic",
+        "pulse_react",
+        "motion_harmonic",
+        "motion_percussive",
+        "motion_react",
+        "fps",
+    )
+
+    FUNCTION = "ParamUpdate"
+    CATEGORY = "🎶 LucidSonicDream"
+
+
+    def ParamUpdate(
+        self,
+        styleganmodel_prev,
+        styleganmodel,
+        start_prev,
+        duration_prev,
+        speed_fpm_prev,
+        pulse_percussive_prev,
+        pulse_harmonic_prev,
+        pulse_react_prev,
+        motion_harmonic_prev,
+        motion_percussive_prev,
+        motion_react_prev,
+        fps_prev,
+        rangestep,
+        duration,
+        speed_fpm,
+        pulse_percussive,
+        pulse_harmonic,
+        pulse_react,
+        motion_harmonic,
+        motion_percussive,
+        motion_react,
+        fps,
+        usenewparam,
+        usenewmodel,
+    ):
+        
+        newstart = start_prev + duration_prev - rangestep
+        
+        if usenewmodel:
+            newmodel = styleganmodel
+        else:
+            newmodel = styleganmodel_prev
+
+        if usenewparam:
+
+            return (
+                newmodel,
+                newstart,
+                duration,
+                speed_fpm,
+                pulse_percussive,
+                pulse_harmonic,
+                pulse_react,
+                motion_harmonic,
+                motion_percussive,
+                motion_react,
+                fps,
+            )
+        else:
+
+            return (
+                newmodel,
+                newstart,
+                duration_prev,
+                speed_fpm_prev,
+                pulse_percussive_prev,
+                pulse_harmonic_prev,
+                pulse_react_prev,
+                motion_harmonic_prev,
+                motion_percussive_prev,
+                motion_react_prev,
+                fps_prev,
+            )
 
 
 import cv2
@@ -254,9 +421,9 @@ class APICallNode:
 
 
             files = {'audio_file': ('audio.wav', audio_bytes)}
-            response = requests.post(full_url, data=json_body, files=files) #data=data, files=files) 
+            response = requests.post(full_url, data=json_body, files=files, timeout=3600) #data=data, files=files) 
         else:
-            response = requests.post(full_url, data=json_body)#json=json_body) 
+            response = requests.post(full_url, data=json_body, timeout=3600)#json=json_body) 
 
         # Check if the request was successful
         if response.status_code == 200:
