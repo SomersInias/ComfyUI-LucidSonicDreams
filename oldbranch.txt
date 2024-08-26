@@ -1,0 +1,1 @@
+This was actually perfect running code but (specificly the comfy ui nodes) but the free ngrok api had limits) 
