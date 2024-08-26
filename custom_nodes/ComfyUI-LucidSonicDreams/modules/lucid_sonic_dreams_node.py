@@ -386,11 +386,13 @@ class APICallNode:
         }
         
 
-        
+        # New variables for the /run and /video endpoints
+        run_url = f"{api_url}/run"
+        video_url = f"{api_url}/video"
 
         # Add a unique query parameter to avoid cached responses
-        unique_query_param = f"timestamp={int(time.time())}"
-        full_url = f"{api_url}?{unique_query_param}"
+        #unique_query_param = f"timestamp={int(time.time())}"
+        #full_url = f"{api_url}?{unique_query_param}"
        
         
          # Send the POST request
@@ -421,19 +423,62 @@ class APICallNode:
 
 
             files = {'audio_file': ('audio.wav', audio_bytes)}
-            response = requests.post(full_url, data=json_body, files=files, timeout=3600) #data=data, files=files) 
+            response = requests.post(run_url, data=json_body, files=files, timeout=3600) #data=data, files=files) 
         else:
-            response = requests.post(full_url, data=json_body, timeout=3600)#json=json_body) 
+            response = requests.post(run_url, data=json_body, timeout=3600)#json=json_body) 
+
+
 
         # Check if the request was successful
         if response.status_code == 200:
-            print("success")
-            video_bytes = response.content
+            # Parse the JSON response
+            response_data = response.json()
 
-            return (video_bytes,)
-     
+            # Check if the message is "script initialized"
+            if response_data.get("message") == "script initialized":
+                print("script initialized")
+            else:
+                print("Unexpected message:", response_data.get("message"))
         else:
-            raise Exception(f"API request failed with status code {response.status_code}")
+            print(f"Failed to initialize script. Status code: {response.status_code}")
+        
+        #added some pause because the script needs some time to initialize so no need to send get requests in the beginning
+        time.sleep(120)
+        
+        # Initialize a flag to track when the video is received
+        video_received = False
+
+        # Loop until the video is ready
+        while not video_received:
+            # Send the GET request to check the video status
+            response = requests.get(video_url)
+    
+            # Check if the request was successful
+            if response.status_code == 200:
+                # If the video is ready, download the video and break the loop
+                video_bytes = response.content
+                print("Video received")
+                return (video_bytes,)
+            elif response.status_code == 202:
+                # If the video is not ready yet, print the message and wait
+                response_data = response.json()
+                print(response_data.get("message", "Video is not ready yet"))
+        
+                # Wait for 30 seconds before the next request
+                time.sleep(30)
+            else:
+                # If there was an error, print the error and wait before retrying
+                print(f"Failed to check video status. Status code: {response.status_code}")
+                
+        # Check if the request was successful older code
+        #if response.status_code == 200:
+         #   print("success")
+          #  video_bytes = response.content
+
+           # return (video_bytes,)
+     
+    #    else:
+     #       raise Exception(f"API request failed with status code {response.status_code}")
         
 
 
