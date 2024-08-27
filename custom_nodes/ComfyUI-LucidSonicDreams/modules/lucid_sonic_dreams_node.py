@@ -358,8 +358,8 @@ class APICallNode:
             }
         }
 
-    RETURN_TYPES = ("BYTESVID",)
-    RETURN_NAMES = ("video",)
+    RETURN_TYPES = ("BYTESVID","STRING")
+    RETURN_NAMES = ("video","api_url")
     FUNCTION = "makeApiCall"
     CATEGORY = "🎶 LucidSonicDream"
 
@@ -458,7 +458,7 @@ class APICallNode:
                 # If the video is ready, download the video and break the loop
                 video_bytes = response.content
                 print("Video received")
-                return (video_bytes,)
+                return (video_bytes,api_url)
             elif response.status_code == 202:
                 # If the video is not ready yet, print the message and wait
                 response_data = response.json()
@@ -483,6 +483,26 @@ class APICallNode:
 
 
 
+import re
+
+def update_filename(filename_prefix_prev):
+    
+    # Check if the string ends with "_<number>"
+    match = re.search(r'_(\d+)$', filename_prefix_prev)
+    
+    if match:
+        # Extract the number and increment it
+        number = int(match.group(1))
+        new_number = number + 1
+        # Replace the old number with the new number
+        filename_prefix_prev = re.sub(r'_(\d+)$', f"_{new_number}", filename_prefix_prev)
+    else:
+        # If the string doesn't end with "_<number>", add "_2"
+        filename_prefix_prev += "_2"
+    
+    return filename_prefix_prev
+
+
 import cv2
 import os
 import shutil
@@ -500,16 +520,17 @@ class SimpleSaveVideoNode:
                 "filename_prefix": ("STRING", {"default": "video"}),
                 #"save_video": ("BOOLEAN", {"default": False}),
                 "output_path": ("STRING", {"default": "Downloads"}),
-            }
+                "filename_prefix_prev": ("STRING", {"default": "None"} ),
+            },
         }
     
-    RETURN_TYPES = ("STRING",)
-    RETURN_NAMES = ("videopath",)
+    RETURN_TYPES = ("STRING","STRING")
+    RETURN_NAMES = ("videopath","prefix")
     FUNCTION = "saveVideo"
     OUTPUT_NODE = True
     CATEGORY = "🎶 LucidSonicDream"
 
-    def saveVideo(self, input_video_bytes, output_path, filename_prefix):
+    def saveVideo(self, input_video_bytes, output_path, filename_prefix,filename_prefix_prev):
     # Ensure output directory exists
         if not os.path.exists(output_path):
             os.makedirs(output_path)
@@ -522,6 +543,11 @@ class SimpleSaveVideoNode:
             # Load the video
             video_clip = VideoFileClip(temp_video_file.name)
             fps = video_clip.fps
+
+            # Check if the string is empty
+            if filename_prefix_prev != "None":
+                filename_prefix = update_filename(filename_prefix_prev)
+                
 
             # Generate file paths
             video_file_path = os.path.join(output_path, f"{filename_prefix}.mp4")
@@ -560,7 +586,7 @@ class SimpleSaveVideoNode:
 
         # Pause the program for 1 second
         time.sleep(2)
-        return (str(full_path),)
+        return (str(full_path),filename_prefix)
 
     
 

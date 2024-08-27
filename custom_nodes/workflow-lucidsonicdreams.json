@@ -1,20 +1,91 @@
 {
-  "last_node_id": 52,
-  "last_link_id": 130,
+  "last_node_id": 76,
+  "last_link_id": 278,
   "nodes": [
+    {
+      "id": 26,
+      "type": "VHS_VideoCombine",
+      "pos": [
+        1046.0186646730901,
+        147.64592468221832
+      ],
+      "size": [
+        923.1345825195312,
+        1227.1345825195312
+      ],
+      "flags": {},
+      "order": 16,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 115
+        },
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "link": 116,
+          "slot_index": 1
+        },
+        {
+          "name": "meta_batch",
+          "type": "VHS_BatchManager",
+          "link": null
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Filenames",
+          "type": "VHS_FILENAMES",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VHS_VideoCombine"
+      },
+      "widgets_values": {
+        "frame_rate": 20,
+        "loop_count": 0,
+        "filename_prefix": "AnimateDiff",
+        "format": "video/h264-mp4",
+        "pix_fmt": "yuv420p",
+        "crf": 20,
+        "save_metadata": true,
+        "pingpong": false,
+        "save_output": true,
+        "videopreview": {
+          "hidden": false,
+          "paused": false,
+          "params": {
+            "filename": "AnimateDiff_00016-audio.mp4",
+            "subfolder": "",
+            "type": "output",
+            "format": "video/h264-mp4",
+            "frame_rate": 20
+          }
+        }
+      }
+    },
     {
       "id": 41,
       "type": "VHS_LoadVideoPath",
       "pos": [
-        706,
-        132
+        706.8844820772001,
+        148.52583777335082
       ],
       "size": [
         315,
         214
       ],
       "flags": {},
-      "order": 4,
+      "order": 11,
       "mode": 0,
       "inputs": [
         {
@@ -30,7 +101,7 @@
         {
           "name": "video",
           "type": "STRING",
-          "link": 110,
+          "link": 158,
           "widget": {
             "name": "video"
           },
@@ -98,129 +169,184 @@
       }
     },
     {
-      "id": 26,
-      "type": "VHS_VideoCombine",
+      "id": 51,
+      "type": "LoadAudio",
       "pos": [
-        1054,
-        134
-      ],
-      "size": [
-        923.1345825195312,
-        1227.1345825195312
-      ],
-      "flags": {},
-      "order": 5,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "images",
-          "type": "IMAGE",
-          "link": 115
-        },
-        {
-          "name": "audio",
-          "type": "AUDIO",
-          "link": 116,
-          "slot_index": 1
-        },
-        {
-          "name": "meta_batch",
-          "type": "VHS_BatchManager",
-          "link": null
-        },
-        {
-          "name": "vae",
-          "type": "VAE",
-          "link": null
-        }
-      ],
-      "outputs": [
-        {
-          "name": "Filenames",
-          "type": "VHS_FILENAMES",
-          "links": null,
-          "shape": 3
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "VHS_VideoCombine"
-      },
-      "widgets_values": {
-        "frame_rate": 20,
-        "loop_count": 0,
-        "filename_prefix": "AnimateDiff",
-        "format": "video/h264-mp4",
-        "pix_fmt": "yuv420p",
-        "crf": 20,
-        "save_metadata": true,
-        "pingpong": false,
-        "save_output": true,
-        "videopreview": {
-          "hidden": false,
-          "paused": false,
-          "params": {
-            "filename": "AnimateDiff_00015-audio.mp4",
-            "subfolder": "",
-            "type": "output",
-            "format": "video/h264-mp4",
-            "frame_rate": 20
-          }
-        }
-      }
-    },
-    {
-      "id": 47,
-      "type": "SimpleSaveVideoNode",
-      "pos": [
-        362,
-        516
+        0,
+        -7
       ],
       "size": {
-        "0": 342.5999755859375,
-        "1": 106
+        "0": 315,
+        "1": 124
       },
       "flags": {},
-      "order": 3,
+      "order": 0,
       "mode": 0,
-      "inputs": [
-        {
-          "name": "input_video_bytes",
-          "type": "BYTESVID",
-          "link": 117
-        }
-      ],
       "outputs": [
         {
-          "name": "videopath",
-          "type": "STRING",
+          "name": "AUDIO",
+          "type": "AUDIO",
           "links": [
-            110
+            130
           ],
           "shape": 3,
           "slot_index": 0
         }
       ],
       "properties": {
-        "Node name for S&R": "SimpleSaveVideoNode"
+        "Node name for S&R": "LoadAudio"
       },
       "widgets_values": [
-        "2208test",
-        "Downloads"
+        "Pachamama - Astral Flowers.mp3",
+        null,
+        ""
+      ]
+    },
+    {
+      "id": 42,
+      "type": "InputParamLucid",
+      "pos": [
+        5,
+        168
+      ],
+      "size": {
+        "0": 315,
+        "1": 498
+      },
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "styleganmodel",
+          "type": "STYLE_GAN_MODEL",
+          "links": [
+            119
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "start",
+          "type": "START",
+          "links": [
+            120
+          ],
+          "shape": 3,
+          "slot_index": 1
+        },
+        {
+          "name": "duration",
+          "type": "DURATION",
+          "links": [
+            121
+          ],
+          "shape": 3,
+          "slot_index": 2
+        },
+        {
+          "name": "speed_fpm",
+          "type": "SPEED_FPM",
+          "links": [
+            122
+          ],
+          "shape": 3,
+          "slot_index": 3
+        },
+        {
+          "name": "pulse_percussive",
+          "type": "PULSE_PERCUSSIVE",
+          "links": [
+            123
+          ],
+          "shape": 3,
+          "slot_index": 4
+        },
+        {
+          "name": "pulse_harmonic",
+          "type": "PULSE_HARMONIC",
+          "links": [
+            124
+          ],
+          "shape": 3,
+          "slot_index": 5
+        },
+        {
+          "name": "pulse_react",
+          "type": "PULSE_REACT",
+          "links": [
+            125
+          ],
+          "shape": 3,
+          "slot_index": 6
+        },
+        {
+          "name": "motion_harmonic",
+          "type": "MOTION_HARMONIC",
+          "links": [
+            126
+          ],
+          "shape": 3,
+          "slot_index": 7
+        },
+        {
+          "name": "motion_percussive",
+          "type": "MOTION_PERCUSSIVE",
+          "links": [
+            127
+          ],
+          "shape": 3,
+          "slot_index": 8
+        },
+        {
+          "name": "motion_react",
+          "type": "MOTION_REACT",
+          "links": [
+            128
+          ],
+          "shape": 3,
+          "slot_index": 9
+        },
+        {
+          "name": "fps",
+          "type": "FPS",
+          "links": [
+            129
+          ],
+          "shape": 3,
+          "slot_index": 10
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "InputParamLucid"
+      },
+      "widgets_values": [
+        "/content/drive/MyDrive/sonic/iniasstylefinal.pkl",
+        0,
+        50,
+        20,
+        true,
+        false,
+        0.6000000000000001,
+        true,
+        false,
+        0.5,
+        24
       ]
     },
     {
       "id": 52,
       "type": "APICallNode",
       "pos": [
-        367,
-        115
+        354,
+        137
       ],
       "size": {
         "0": 315,
         "1": 350
       },
       "flags": {},
-      "order": 2,
+      "order": 4,
       "mode": 0,
       "inputs": [
         {
@@ -302,38 +428,92 @@
           ],
           "shape": 3,
           "slot_index": 0
+        },
+        {
+          "name": "api_url",
+          "type": "STRING",
+          "links": null,
+          "shape": 3
         }
       ],
       "properties": {
         "Node name for S&R": "APICallNode"
       },
       "widgets_values": [
-        "https://9e4a-35-230-81-180.ngrok-free.app/run",
+        "https://4c4e-35-204-63-140.ngrok-free.app",
         "/content/testambiant.mp4",
         "/content/resultvideo1.mp4",
         true
       ]
     },
     {
-      "id": 42,
+      "id": 47,
+      "type": "SimpleSaveVideoNode",
+      "pos": [
+        349,
+        538
+      ],
+      "size": {
+        "0": 342.5999755859375,
+        "1": 126
+      },
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "input_video_bytes",
+          "type": "BYTESVID",
+          "link": 117
+        }
+      ],
+      "outputs": [
+        {
+          "name": "videopath",
+          "type": "STRING",
+          "links": [
+            158
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "prefix",
+          "type": "STRING",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SimpleSaveVideoNode"
+      },
+      "widgets_values": [
+        "longlongcheck2",
+        "Downloads",
+        "None"
+      ]
+    },
+    {
+      "id": 60,
       "type": "InputParamLucid",
       "pos": [
-        18,
-        146
+        274.80026045659145,
+        1734.2766261932475
       ],
       "size": {
         "0": 315,
         "1": 498
       },
       "flags": {},
-      "order": 0,
-      "mode": 0,
+      "order": 2,
+      "mode": 4,
       "outputs": [
         {
           "name": "styleganmodel",
           "type": "STYLE_GAN_MODEL",
           "links": [
-            119
+            160,
+            172
           ],
           "shape": 3,
           "slot_index": 0
@@ -342,15 +522,18 @@
           "name": "start",
           "type": "START",
           "links": [
-            120
+            161,
+            173
           ],
-          "shape": 3
+          "shape": 3,
+          "slot_index": 1
         },
         {
           "name": "duration",
           "type": "DURATION",
           "links": [
-            121
+            162,
+            174
           ],
           "shape": 3,
           "slot_index": 2
@@ -359,15 +542,18 @@
           "name": "speed_fpm",
           "type": "SPEED_FPM",
           "links": [
-            122
+            163,
+            175
           ],
-          "shape": 3
+          "shape": 3,
+          "slot_index": 3
         },
         {
           "name": "pulse_percussive",
           "type": "PULSE_PERCUSSIVE",
           "links": [
-            123
+            164,
+            176
           ],
           "shape": 3,
           "slot_index": 4
@@ -376,15 +562,18 @@
           "name": "pulse_harmonic",
           "type": "PULSE_HARMONIC",
           "links": [
-            124
+            165,
+            177
           ],
-          "shape": 3
+          "shape": 3,
+          "slot_index": 5
         },
         {
           "name": "pulse_react",
           "type": "PULSE_REACT",
           "links": [
-            125
+            166,
+            178
           ],
           "shape": 3,
           "slot_index": 6
@@ -393,15 +582,18 @@
           "name": "motion_harmonic",
           "type": "MOTION_HARMONIC",
           "links": [
-            126
+            167,
+            179
           ],
-          "shape": 3
+          "shape": 3,
+          "slot_index": 7
         },
         {
           "name": "motion_percussive",
           "type": "MOTION_PERCUSSIVE",
           "links": [
-            127
+            168,
+            180
           ],
           "shape": 3,
           "slot_index": 8
@@ -410,56 +602,858 @@
           "name": "motion_react",
           "type": "MOTION_REACT",
           "links": [
-            128
+            169,
+            181
           ],
-          "shape": 3
+          "shape": 3,
+          "slot_index": 9
         },
         {
           "name": "fps",
           "type": "FPS",
           "links": [
-            129
+            170,
+            182
           ],
-          "shape": 3
+          "shape": 3,
+          "slot_index": 10
         }
       ],
       "properties": {
         "Node name for S&R": "InputParamLucid"
       },
       "widgets_values": [
-        "/content/drive/MyDrive/sonic/VisionaryArtm.pkl",
+        "/content/drive/MyDrive/sonic/iniasstylefinal.pkl",
         0,
-        5,
+        50,
         20,
         true,
         false,
-        0.2,
+        0.6000000000000001,
         true,
         false,
-        0.2,
+        0.5,
         24
       ]
     },
     {
-      "id": 51,
+      "id": 54,
+      "type": "InputParamLucidSecond",
+      "pos": [
+        651.8002604565912,
+        1737.2766261932475
+      ],
+      "size": {
+        "0": 337.6000061035156,
+        "1": 546
+      },
+      "flags": {},
+      "order": 5,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "styleganmodel_prev",
+          "type": "STYLE_GAN_MODEL",
+          "link": 172
+        },
+        {
+          "name": "start_prev",
+          "type": "START",
+          "link": 173
+        },
+        {
+          "name": "duration_prev",
+          "type": "DURATION",
+          "link": 174
+        },
+        {
+          "name": "speed_fpm_prev",
+          "type": "SPEED_FPM",
+          "link": 175
+        },
+        {
+          "name": "pulse_percussive_prev",
+          "type": "PULSE_PERCUSSIVE",
+          "link": 176
+        },
+        {
+          "name": "pulse_harmonic_prev",
+          "type": "PULSE_HARMONIC",
+          "link": 177
+        },
+        {
+          "name": "pulse_react_prev",
+          "type": "PULSE_REACT",
+          "link": 178
+        },
+        {
+          "name": "motion_harmonic_prev",
+          "type": "MOTION_HARMONIC",
+          "link": 179
+        },
+        {
+          "name": "motion_percussive_prev",
+          "type": "MOTION_PERCUSSIVE",
+          "link": 180
+        },
+        {
+          "name": "motion_react_prev",
+          "type": "MOTION_REACT",
+          "link": 181
+        },
+        {
+          "name": "fps_prev",
+          "type": "FPS",
+          "link": 182
+        }
+      ],
+      "outputs": [
+        {
+          "name": "styleganmodel",
+          "type": "STYLE_GAN_MODEL",
+          "links": [
+            142,
+            214
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "start",
+          "type": "START",
+          "links": [
+            143,
+            215
+          ],
+          "shape": 3,
+          "slot_index": 1
+        },
+        {
+          "name": "duration",
+          "type": "DURATION",
+          "links": [
+            144,
+            216
+          ],
+          "shape": 3,
+          "slot_index": 2
+        },
+        {
+          "name": "speed_fpm",
+          "type": "SPEED_FPM",
+          "links": [
+            145,
+            217
+          ],
+          "shape": 3,
+          "slot_index": 3
+        },
+        {
+          "name": "pulse_percussive",
+          "type": "PULSE_PERCUSSIVE",
+          "links": [
+            146,
+            219
+          ],
+          "shape": 3,
+          "slot_index": 4
+        },
+        {
+          "name": "pulse_harmonic",
+          "type": "PULSE_HARMONIC",
+          "links": [
+            147,
+            218
+          ],
+          "shape": 3,
+          "slot_index": 5
+        },
+        {
+          "name": "pulse_react",
+          "type": "PULSE_REACT",
+          "links": [
+            148,
+            221
+          ],
+          "shape": 3,
+          "slot_index": 6
+        },
+        {
+          "name": "motion_harmonic",
+          "type": "MOTION_HARMONIC",
+          "links": [
+            149,
+            220
+          ],
+          "shape": 3,
+          "slot_index": 7
+        },
+        {
+          "name": "motion_percussive",
+          "type": "MOTION_PERCUSSIVE",
+          "links": [
+            150,
+            222
+          ],
+          "shape": 3,
+          "slot_index": 8
+        },
+        {
+          "name": "motion_react",
+          "type": "MOTION_REACT",
+          "links": [
+            151,
+            223
+          ],
+          "shape": 3,
+          "slot_index": 9
+        },
+        {
+          "name": "fps",
+          "type": "FPS",
+          "links": [
+            152,
+            224
+          ],
+          "shape": 3,
+          "slot_index": 10
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "InputParamLucidSecond"
+      },
+      "widgets_values": [
+        "/content/drive/MyDrive/sonic/iniasstylefinal.pkl",
+        10,
+        false,
+        false,
+        20,
+        20,
+        true,
+        false,
+        0.5,
+        true,
+        false,
+        0.5,
+        24
+      ]
+    },
+    {
+      "id": 63,
+      "type": "InputParamLucidSecond",
+      "pos": [
+        1064.8002604565909,
+        1736.2766261932475
+      ],
+      "size": {
+        "0": 337.6000061035156,
+        "1": 546
+      },
+      "flags": {},
+      "order": 8,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "styleganmodel_prev",
+          "type": "STYLE_GAN_MODEL",
+          "link": 214
+        },
+        {
+          "name": "start_prev",
+          "type": "START",
+          "link": 215
+        },
+        {
+          "name": "duration_prev",
+          "type": "DURATION",
+          "link": 216
+        },
+        {
+          "name": "speed_fpm_prev",
+          "type": "SPEED_FPM",
+          "link": 217
+        },
+        {
+          "name": "pulse_percussive_prev",
+          "type": "PULSE_PERCUSSIVE",
+          "link": 219,
+          "slot_index": 4
+        },
+        {
+          "name": "pulse_harmonic_prev",
+          "type": "PULSE_HARMONIC",
+          "link": 218
+        },
+        {
+          "name": "pulse_react_prev",
+          "type": "PULSE_REACT",
+          "link": 221
+        },
+        {
+          "name": "motion_harmonic_prev",
+          "type": "MOTION_HARMONIC",
+          "link": 220
+        },
+        {
+          "name": "motion_percussive_prev",
+          "type": "MOTION_PERCUSSIVE",
+          "link": 222
+        },
+        {
+          "name": "motion_react_prev",
+          "type": "MOTION_REACT",
+          "link": 223
+        },
+        {
+          "name": "fps_prev",
+          "type": "FPS",
+          "link": 224
+        }
+      ],
+      "outputs": [
+        {
+          "name": "styleganmodel",
+          "type": "STYLE_GAN_MODEL",
+          "links": [
+            185,
+            225
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "start",
+          "type": "START",
+          "links": [
+            186,
+            226
+          ],
+          "shape": 3,
+          "slot_index": 1
+        },
+        {
+          "name": "duration",
+          "type": "DURATION",
+          "links": [
+            187,
+            227
+          ],
+          "shape": 3,
+          "slot_index": 2
+        },
+        {
+          "name": "speed_fpm",
+          "type": "SPEED_FPM",
+          "links": [
+            188,
+            228
+          ],
+          "shape": 3,
+          "slot_index": 3
+        },
+        {
+          "name": "pulse_percussive",
+          "type": "PULSE_PERCUSSIVE",
+          "links": [
+            189,
+            229
+          ],
+          "shape": 3,
+          "slot_index": 4
+        },
+        {
+          "name": "pulse_harmonic",
+          "type": "PULSE_HARMONIC",
+          "links": [
+            190,
+            230
+          ],
+          "shape": 3,
+          "slot_index": 5
+        },
+        {
+          "name": "pulse_react",
+          "type": "PULSE_REACT",
+          "links": [
+            191,
+            231
+          ],
+          "shape": 3,
+          "slot_index": 6
+        },
+        {
+          "name": "motion_harmonic",
+          "type": "MOTION_HARMONIC",
+          "links": [
+            192,
+            232
+          ],
+          "shape": 3,
+          "slot_index": 7
+        },
+        {
+          "name": "motion_percussive",
+          "type": "MOTION_PERCUSSIVE",
+          "links": [
+            193,
+            233
+          ],
+          "shape": 3,
+          "slot_index": 8
+        },
+        {
+          "name": "motion_react",
+          "type": "MOTION_REACT",
+          "links": [
+            194,
+            234
+          ],
+          "shape": 3,
+          "slot_index": 9
+        },
+        {
+          "name": "fps",
+          "type": "FPS",
+          "links": [
+            195,
+            235
+          ],
+          "shape": 3,
+          "slot_index": 10
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "InputParamLucidSecond"
+      },
+      "widgets_values": [
+        "/content/drive/MyDrive/sonic/iniasstylefinal.pkl",
+        10,
+        false,
+        false,
+        20,
+        20,
+        true,
+        false,
+        0.5,
+        true,
+        false,
+        0.5,
+        24
+      ]
+    },
+    {
+      "id": 69,
+      "type": "InputParamLucidSecond",
+      "pos": [
+        1925.8002604565922,
+        1744.2766261932475
+      ],
+      "size": {
+        "0": 337.6000061035156,
+        "1": 546
+      },
+      "flags": {},
+      "order": 17,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "styleganmodel_prev",
+          "type": "STYLE_GAN_MODEL",
+          "link": 248
+        },
+        {
+          "name": "start_prev",
+          "type": "START",
+          "link": 249
+        },
+        {
+          "name": "duration_prev",
+          "type": "DURATION",
+          "link": 250
+        },
+        {
+          "name": "speed_fpm_prev",
+          "type": "SPEED_FPM",
+          "link": 251
+        },
+        {
+          "name": "pulse_percussive_prev",
+          "type": "PULSE_PERCUSSIVE",
+          "link": 252
+        },
+        {
+          "name": "pulse_harmonic_prev",
+          "type": "PULSE_HARMONIC",
+          "link": 253
+        },
+        {
+          "name": "pulse_react_prev",
+          "type": "PULSE_REACT",
+          "link": 254
+        },
+        {
+          "name": "motion_harmonic_prev",
+          "type": "MOTION_HARMONIC",
+          "link": 255
+        },
+        {
+          "name": "motion_percussive_prev",
+          "type": "MOTION_PERCUSSIVE",
+          "link": 256
+        },
+        {
+          "name": "motion_react_prev",
+          "type": "MOTION_REACT",
+          "link": 257
+        },
+        {
+          "name": "fps_prev",
+          "type": "FPS",
+          "link": 258
+        }
+      ],
+      "outputs": [
+        {
+          "name": "styleganmodel",
+          "type": "STYLE_GAN_MODEL",
+          "links": [
+            236
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "start",
+          "type": "START",
+          "links": [
+            237
+          ],
+          "shape": 3,
+          "slot_index": 1
+        },
+        {
+          "name": "duration",
+          "type": "DURATION",
+          "links": [
+            238
+          ],
+          "shape": 3,
+          "slot_index": 2
+        },
+        {
+          "name": "speed_fpm",
+          "type": "SPEED_FPM",
+          "links": [
+            239
+          ],
+          "shape": 3,
+          "slot_index": 3
+        },
+        {
+          "name": "pulse_percussive",
+          "type": "PULSE_PERCUSSIVE",
+          "links": [
+            240
+          ],
+          "shape": 3,
+          "slot_index": 4
+        },
+        {
+          "name": "pulse_harmonic",
+          "type": "PULSE_HARMONIC",
+          "links": [
+            241
+          ],
+          "shape": 3,
+          "slot_index": 5
+        },
+        {
+          "name": "pulse_react",
+          "type": "PULSE_REACT",
+          "links": [
+            242
+          ],
+          "shape": 3,
+          "slot_index": 6
+        },
+        {
+          "name": "motion_harmonic",
+          "type": "MOTION_HARMONIC",
+          "links": [
+            243
+          ],
+          "shape": 3,
+          "slot_index": 7
+        },
+        {
+          "name": "motion_percussive",
+          "type": "MOTION_PERCUSSIVE",
+          "links": [
+            244
+          ],
+          "shape": 3,
+          "slot_index": 8
+        },
+        {
+          "name": "motion_react",
+          "type": "MOTION_REACT",
+          "links": [
+            245
+          ],
+          "shape": 3,
+          "slot_index": 9
+        },
+        {
+          "name": "fps",
+          "type": "FPS",
+          "links": [
+            246
+          ],
+          "shape": 3,
+          "slot_index": 10
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "InputParamLucidSecond"
+      },
+      "widgets_values": [
+        "/content/drive/MyDrive/sonic/iniasstylefinal.pkl",
+        10,
+        false,
+        false,
+        20,
+        20,
+        true,
+        false,
+        0.5,
+        true,
+        false,
+        0.5,
+        24
+      ]
+    },
+    {
+      "id": 66,
+      "type": "InputParamLucidSecond",
+      "pos": [
+        1494.8002604565922,
+        1740.2766261932475
+      ],
+      "size": {
+        "0": 337.6000061035156,
+        "1": 546
+      },
+      "flags": {},
+      "order": 12,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "styleganmodel_prev",
+          "type": "STYLE_GAN_MODEL",
+          "link": 225
+        },
+        {
+          "name": "start_prev",
+          "type": "START",
+          "link": 226
+        },
+        {
+          "name": "duration_prev",
+          "type": "DURATION",
+          "link": 227
+        },
+        {
+          "name": "speed_fpm_prev",
+          "type": "SPEED_FPM",
+          "link": 228
+        },
+        {
+          "name": "pulse_percussive_prev",
+          "type": "PULSE_PERCUSSIVE",
+          "link": 229
+        },
+        {
+          "name": "pulse_harmonic_prev",
+          "type": "PULSE_HARMONIC",
+          "link": 230
+        },
+        {
+          "name": "pulse_react_prev",
+          "type": "PULSE_REACT",
+          "link": 231
+        },
+        {
+          "name": "motion_harmonic_prev",
+          "type": "MOTION_HARMONIC",
+          "link": 232
+        },
+        {
+          "name": "motion_percussive_prev",
+          "type": "MOTION_PERCUSSIVE",
+          "link": 233
+        },
+        {
+          "name": "motion_react_prev",
+          "type": "MOTION_REACT",
+          "link": 234
+        },
+        {
+          "name": "fps_prev",
+          "type": "FPS",
+          "link": 235
+        }
+      ],
+      "outputs": [
+        {
+          "name": "styleganmodel",
+          "type": "STYLE_GAN_MODEL",
+          "links": [
+            199,
+            248
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "start",
+          "type": "START",
+          "links": [
+            200,
+            249
+          ],
+          "shape": 3,
+          "slot_index": 1
+        },
+        {
+          "name": "duration",
+          "type": "DURATION",
+          "links": [
+            201,
+            250
+          ],
+          "shape": 3,
+          "slot_index": 2
+        },
+        {
+          "name": "speed_fpm",
+          "type": "SPEED_FPM",
+          "links": [
+            202,
+            251
+          ],
+          "shape": 3,
+          "slot_index": 3
+        },
+        {
+          "name": "pulse_percussive",
+          "type": "PULSE_PERCUSSIVE",
+          "links": [
+            203,
+            252
+          ],
+          "shape": 3,
+          "slot_index": 4
+        },
+        {
+          "name": "pulse_harmonic",
+          "type": "PULSE_HARMONIC",
+          "links": [
+            204,
+            253
+          ],
+          "shape": 3,
+          "slot_index": 5
+        },
+        {
+          "name": "pulse_react",
+          "type": "PULSE_REACT",
+          "links": [
+            205,
+            254
+          ],
+          "shape": 3,
+          "slot_index": 6
+        },
+        {
+          "name": "motion_harmonic",
+          "type": "MOTION_HARMONIC",
+          "links": [
+            206,
+            255
+          ],
+          "shape": 3,
+          "slot_index": 7
+        },
+        {
+          "name": "motion_percussive",
+          "type": "MOTION_PERCUSSIVE",
+          "links": [
+            207,
+            256
+          ],
+          "shape": 3,
+          "slot_index": 8
+        },
+        {
+          "name": "motion_react",
+          "type": "MOTION_REACT",
+          "links": [
+            208,
+            257
+          ],
+          "shape": 3,
+          "slot_index": 9
+        },
+        {
+          "name": "fps",
+          "type": "FPS",
+          "links": [
+            209,
+            258
+          ],
+          "shape": 3,
+          "slot_index": 10
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "InputParamLucidSecond"
+      },
+      "widgets_values": [
+        "/content/drive/MyDrive/sonic/iniasstylefinal.pkl",
+        10,
+        false,
+        false,
+        20,
+        20,
+        true,
+        false,
+        0.5,
+        true,
+        false,
+        0.5,
+        24
+      ]
+    },
+    {
+      "id": 59,
       "type": "LoadAudio",
       "pos": [
-        13,
-        -29
+        -90.1997395434084,
+        1737.2766261932475
       ],
       "size": {
         "0": 315,
         "1": 124
       },
       "flags": {},
-      "order": 1,
-      "mode": 0,
+      "order": 3,
+      "mode": 4,
       "outputs": [
         {
           "name": "AUDIO",
           "type": "AUDIO",
           "links": [
-            130
+            261
           ],
           "shape": 3,
           "slot_index": 0
@@ -469,21 +1463,1034 @@
         "Node name for S&R": "LoadAudio"
       },
       "widgets_values": [
-        "Cliff Side - Silent Partner.mp3",
+        "Pachamama - Astral Flowers.mp3",
         null,
         ""
+      ]
+    },
+    {
+      "id": 70,
+      "type": "APICallNode",
+      "pos": [
+        1936.8002604565922,
+        2373.276626193248
+      ],
+      "size": [
+        315,
+        350
+      ],
+      "flags": {},
+      "order": 25,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "link": 274
+        },
+        {
+          "name": "styleganmodel",
+          "type": "STYLE_GAN_MODEL",
+          "link": 236
+        },
+        {
+          "name": "start",
+          "type": "START",
+          "link": 237
+        },
+        {
+          "name": "duration",
+          "type": "DURATION",
+          "link": 238
+        },
+        {
+          "name": "speed_fpm",
+          "type": "SPEED_FPM",
+          "link": 239
+        },
+        {
+          "name": "pulse_percussive",
+          "type": "PULSE_PERCUSSIVE",
+          "link": 240
+        },
+        {
+          "name": "pulse_harmonic",
+          "type": "PULSE_HARMONIC",
+          "link": 241
+        },
+        {
+          "name": "pulse_react",
+          "type": "PULSE_REACT",
+          "link": 242
+        },
+        {
+          "name": "motion_harmonic",
+          "type": "MOTION_HARMONIC",
+          "link": 243
+        },
+        {
+          "name": "motion_percussive",
+          "type": "MOTION_PERCUSSIVE",
+          "link": 244
+        },
+        {
+          "name": "motion_react",
+          "type": "MOTION_REACT",
+          "link": 245
+        },
+        {
+          "name": "fps",
+          "type": "FPS",
+          "link": 246
+        },
+        {
+          "name": "api_url",
+          "type": "STRING",
+          "link": 278,
+          "widget": {
+            "name": "api_url"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "video",
+          "type": "BYTESVID",
+          "links": [
+            247
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "api_url",
+          "type": "STRING",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "APICallNode"
+      },
+      "widgets_values": [
+        "https://4c4e-35-204-63-140.ngrok-free.app",
+        "/content/testambiant.mp4",
+        "/content/resultvideo1.mp4",
+        false
+      ]
+    },
+    {
+      "id": 61,
+      "type": "APICallNode",
+      "pos": [
+        265.80026045659145,
+        2359.276626193248
+      ],
+      "size": {
+        "0": 315,
+        "1": 350
+      },
+      "flags": {},
+      "order": 9,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "link": 262
+        },
+        {
+          "name": "styleganmodel",
+          "type": "STYLE_GAN_MODEL",
+          "link": 160
+        },
+        {
+          "name": "start",
+          "type": "START",
+          "link": 161,
+          "slot_index": 2
+        },
+        {
+          "name": "duration",
+          "type": "DURATION",
+          "link": 162
+        },
+        {
+          "name": "speed_fpm",
+          "type": "SPEED_FPM",
+          "link": 163,
+          "slot_index": 4
+        },
+        {
+          "name": "pulse_percussive",
+          "type": "PULSE_PERCUSSIVE",
+          "link": 164,
+          "slot_index": 5
+        },
+        {
+          "name": "pulse_harmonic",
+          "type": "PULSE_HARMONIC",
+          "link": 165,
+          "slot_index": 6
+        },
+        {
+          "name": "pulse_react",
+          "type": "PULSE_REACT",
+          "link": 166,
+          "slot_index": 7
+        },
+        {
+          "name": "motion_harmonic",
+          "type": "MOTION_HARMONIC",
+          "link": 167,
+          "slot_index": 8
+        },
+        {
+          "name": "motion_percussive",
+          "type": "MOTION_PERCUSSIVE",
+          "link": 168,
+          "slot_index": 9
+        },
+        {
+          "name": "motion_react",
+          "type": "MOTION_REACT",
+          "link": 169,
+          "slot_index": 10
+        },
+        {
+          "name": "fps",
+          "type": "FPS",
+          "link": 170,
+          "slot_index": 11
+        }
+      ],
+      "outputs": [
+        {
+          "name": "video",
+          "type": "BYTESVID",
+          "links": [
+            171
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "api_url",
+          "type": "STRING",
+          "links": [
+            275
+          ],
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "APICallNode"
+      },
+      "widgets_values": [
+        "https://4c4e-35-204-63-140.ngrok-free.app",
+        "/content/testambiant.mp4",
+        "/content/resultvideo1.mp4",
+        true
+      ]
+    },
+    {
+      "id": 72,
+      "type": "Reroute",
+      "pos": [
+        148.80026045659156,
+        2294.276626193248
+      ],
+      "size": [
+        75,
+        26
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "",
+          "type": "*",
+          "link": 261
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "AUDIO",
+          "links": [
+            262,
+            267
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "showOutputText": false,
+        "horizontal": false
+      }
+    },
+    {
+      "id": 73,
+      "type": "Reroute",
+      "pos": [
+        538.8002604565914,
+        2291.276626193248
+      ],
+      "size": [
+        75,
+        26
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "",
+          "type": "*",
+          "link": 267
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "AUDIO",
+          "links": [
+            268,
+            269
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "showOutputText": false,
+        "horizontal": false
+      }
+    },
+    {
+      "id": 74,
+      "type": "Reroute",
+      "pos": [
+        970.8002604565913,
+        2293.276626193248
+      ],
+      "size": [
+        75,
+        26
+      ],
+      "flags": {},
+      "order": 15,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "",
+          "type": "*",
+          "link": 269
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "AUDIO",
+          "links": [
+            270,
+            271
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "showOutputText": false,
+        "horizontal": false
+      }
+    },
+    {
+      "id": 75,
+      "type": "Reroute",
+      "pos": [
+        1360.8002604565922,
+        2295.276626193248
+      ],
+      "size": [
+        75,
+        26
+      ],
+      "flags": {},
+      "order": 20,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "",
+          "type": "*",
+          "link": 271
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "AUDIO",
+          "links": [
+            272,
+            273
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "showOutputText": false,
+        "horizontal": false
+      }
+    },
+    {
+      "id": 76,
+      "type": "Reroute",
+      "pos": [
+        1795.8002604565922,
+        2299.276626193248
+      ],
+      "size": [
+        75,
+        26
+      ],
+      "flags": {},
+      "order": 23,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "",
+          "type": "*",
+          "link": 273
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "AUDIO",
+          "links": [
+            274
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "showOutputText": false,
+        "horizontal": false
+      }
+    },
+    {
+      "id": 55,
+      "type": "APICallNode",
+      "pos": [
+        656.8002604565912,
+        2362.276626193248
+      ],
+      "size": [
+        315,
+        350
+      ],
+      "flags": {},
+      "order": 14,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "link": 268
+        },
+        {
+          "name": "styleganmodel",
+          "type": "STYLE_GAN_MODEL",
+          "link": 142
+        },
+        {
+          "name": "start",
+          "type": "START",
+          "link": 143
+        },
+        {
+          "name": "duration",
+          "type": "DURATION",
+          "link": 144
+        },
+        {
+          "name": "speed_fpm",
+          "type": "SPEED_FPM",
+          "link": 145
+        },
+        {
+          "name": "pulse_percussive",
+          "type": "PULSE_PERCUSSIVE",
+          "link": 146
+        },
+        {
+          "name": "pulse_harmonic",
+          "type": "PULSE_HARMONIC",
+          "link": 147
+        },
+        {
+          "name": "pulse_react",
+          "type": "PULSE_REACT",
+          "link": 148
+        },
+        {
+          "name": "motion_harmonic",
+          "type": "MOTION_HARMONIC",
+          "link": 149
+        },
+        {
+          "name": "motion_percussive",
+          "type": "MOTION_PERCUSSIVE",
+          "link": 150
+        },
+        {
+          "name": "motion_react",
+          "type": "MOTION_REACT",
+          "link": 151
+        },
+        {
+          "name": "fps",
+          "type": "FPS",
+          "link": 152
+        },
+        {
+          "name": "api_url",
+          "type": "STRING",
+          "link": 275,
+          "widget": {
+            "name": "api_url"
+          },
+          "slot_index": 12
+        }
+      ],
+      "outputs": [
+        {
+          "name": "video",
+          "type": "BYTESVID",
+          "links": [
+            153
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "api_url",
+          "type": "STRING",
+          "links": [
+            276
+          ],
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "APICallNode"
+      },
+      "widgets_values": [
+        "https://4c4e-35-204-63-140.ngrok-free.app",
+        "/content/testambiant.mp4",
+        "/content/resultvideo1.mp4",
+        false
+      ]
+    },
+    {
+      "id": 64,
+      "type": "APICallNode",
+      "pos": [
+        1068.8002604565909,
+        2367.276626193248
+      ],
+      "size": [
+        315,
+        350
+      ],
+      "flags": {},
+      "order": 19,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "link": 270
+        },
+        {
+          "name": "styleganmodel",
+          "type": "STYLE_GAN_MODEL",
+          "link": 185
+        },
+        {
+          "name": "start",
+          "type": "START",
+          "link": 186
+        },
+        {
+          "name": "duration",
+          "type": "DURATION",
+          "link": 187
+        },
+        {
+          "name": "speed_fpm",
+          "type": "SPEED_FPM",
+          "link": 188
+        },
+        {
+          "name": "pulse_percussive",
+          "type": "PULSE_PERCUSSIVE",
+          "link": 189
+        },
+        {
+          "name": "pulse_harmonic",
+          "type": "PULSE_HARMONIC",
+          "link": 190
+        },
+        {
+          "name": "pulse_react",
+          "type": "PULSE_REACT",
+          "link": 191
+        },
+        {
+          "name": "motion_harmonic",
+          "type": "MOTION_HARMONIC",
+          "link": 192
+        },
+        {
+          "name": "motion_percussive",
+          "type": "MOTION_PERCUSSIVE",
+          "link": 193
+        },
+        {
+          "name": "motion_react",
+          "type": "MOTION_REACT",
+          "link": 194
+        },
+        {
+          "name": "fps",
+          "type": "FPS",
+          "link": 195
+        },
+        {
+          "name": "api_url",
+          "type": "STRING",
+          "link": 276,
+          "widget": {
+            "name": "api_url"
+          },
+          "slot_index": 12
+        }
+      ],
+      "outputs": [
+        {
+          "name": "video",
+          "type": "BYTESVID",
+          "links": [
+            196
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "api_url",
+          "type": "STRING",
+          "links": [
+            277
+          ],
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "APICallNode"
+      },
+      "widgets_values": [
+        "https://4c4e-35-204-63-140.ngrok-free.app",
+        "/content/testambiant.mp4",
+        "/content/resultvideo1.mp4",
+        false
+      ]
+    },
+    {
+      "id": 67,
+      "type": "APICallNode",
+      "pos": [
+        1491.8002604565922,
+        2374.276626193248
+      ],
+      "size": [
+        315,
+        350
+      ],
+      "flags": {},
+      "order": 22,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "link": 272
+        },
+        {
+          "name": "styleganmodel",
+          "type": "STYLE_GAN_MODEL",
+          "link": 199
+        },
+        {
+          "name": "start",
+          "type": "START",
+          "link": 200
+        },
+        {
+          "name": "duration",
+          "type": "DURATION",
+          "link": 201
+        },
+        {
+          "name": "speed_fpm",
+          "type": "SPEED_FPM",
+          "link": 202
+        },
+        {
+          "name": "pulse_percussive",
+          "type": "PULSE_PERCUSSIVE",
+          "link": 203
+        },
+        {
+          "name": "pulse_harmonic",
+          "type": "PULSE_HARMONIC",
+          "link": 204
+        },
+        {
+          "name": "pulse_react",
+          "type": "PULSE_REACT",
+          "link": 205
+        },
+        {
+          "name": "motion_harmonic",
+          "type": "MOTION_HARMONIC",
+          "link": 206
+        },
+        {
+          "name": "motion_percussive",
+          "type": "MOTION_PERCUSSIVE",
+          "link": 207
+        },
+        {
+          "name": "motion_react",
+          "type": "MOTION_REACT",
+          "link": 208
+        },
+        {
+          "name": "fps",
+          "type": "FPS",
+          "link": 209
+        },
+        {
+          "name": "api_url",
+          "type": "STRING",
+          "link": 277,
+          "widget": {
+            "name": "api_url"
+          },
+          "slot_index": 12
+        }
+      ],
+      "outputs": [
+        {
+          "name": "video",
+          "type": "BYTESVID",
+          "links": [
+            210
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "api_url",
+          "type": "STRING",
+          "links": [
+            278
+          ],
+          "shape": 3,
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "APICallNode"
+      },
+      "widgets_values": [
+        "https://4c4e-35-204-63-140.ngrok-free.app",
+        "/content/testambiant.mp4",
+        "/content/resultvideo1.mp4",
+        false
+      ]
+    },
+    {
+      "id": 62,
+      "type": "SimpleSaveVideoNode",
+      "pos": [
+        260.80026045659145,
+        2784.276626193248
+      ],
+      "size": {
+        "0": 342.5999755859375,
+        "1": 126
+      },
+      "flags": {},
+      "order": 13,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "input_video_bytes",
+          "type": "BYTESVID",
+          "link": 171
+        }
+      ],
+      "outputs": [
+        {
+          "name": "videopath",
+          "type": "STRING",
+          "links": [],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "prefix",
+          "type": "STRING",
+          "links": [
+            184
+          ],
+          "shape": 3,
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SimpleSaveVideoNode"
+      },
+      "widgets_values": [
+        "longlongcheck2",
+        "Downloads",
+        "None"
+      ]
+    },
+    {
+      "id": 56,
+      "type": "SimpleSaveVideoNode",
+      "pos": [
+        656.8002604565912,
+        2792.276626193248
+      ],
+      "size": {
+        "0": 342.5999755859375,
+        "1": 126
+      },
+      "flags": {},
+      "order": 18,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "input_video_bytes",
+          "type": "BYTESVID",
+          "link": 153
+        },
+        {
+          "name": "filename_prefix_prev",
+          "type": "STRING",
+          "link": 184,
+          "widget": {
+            "name": "filename_prefix_prev"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "videopath",
+          "type": "STRING",
+          "links": [],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "prefix",
+          "type": "STRING",
+          "links": [
+            198
+          ],
+          "shape": 3,
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SimpleSaveVideoNode"
+      },
+      "widgets_values": [
+        "longlongcheck3",
+        "Downloads",
+        "None"
+      ]
+    },
+    {
+      "id": 65,
+      "type": "SimpleSaveVideoNode",
+      "pos": [
+        1065.8002604565909,
+        2785.276626193248
+      ],
+      "size": {
+        "0": 342.5999755859375,
+        "1": 126
+      },
+      "flags": {},
+      "order": 21,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "input_video_bytes",
+          "type": "BYTESVID",
+          "link": 196
+        },
+        {
+          "name": "filename_prefix_prev",
+          "type": "STRING",
+          "link": 198,
+          "widget": {
+            "name": "filename_prefix_prev"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "videopath",
+          "type": "STRING",
+          "links": [],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "prefix",
+          "type": "STRING",
+          "links": [
+            213
+          ],
+          "shape": 3,
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SimpleSaveVideoNode"
+      },
+      "widgets_values": [
+        "longlongcheck3",
+        "Downloads",
+        "None"
+      ]
+    },
+    {
+      "id": 68,
+      "type": "SimpleSaveVideoNode",
+      "pos": [
+        1491.8002604565922,
+        2782.276626193248
+      ],
+      "size": {
+        "0": 342.5999755859375,
+        "1": 126
+      },
+      "flags": {},
+      "order": 24,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "input_video_bytes",
+          "type": "BYTESVID",
+          "link": 210
+        },
+        {
+          "name": "filename_prefix_prev",
+          "type": "STRING",
+          "link": 213,
+          "widget": {
+            "name": "filename_prefix_prev"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "videopath",
+          "type": "STRING",
+          "links": [],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "prefix",
+          "type": "STRING",
+          "links": [
+            259
+          ],
+          "shape": 3,
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SimpleSaveVideoNode"
+      },
+      "widgets_values": [
+        "longlongcheck3",
+        "Downloads",
+        "None"
+      ]
+    },
+    {
+      "id": 71,
+      "type": "SimpleSaveVideoNode",
+      "pos": [
+        1932.8002604565922,
+        2779.276626193248
+      ],
+      "size": {
+        "0": 342.5999755859375,
+        "1": 126
+      },
+      "flags": {},
+      "order": 26,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "input_video_bytes",
+          "type": "BYTESVID",
+          "link": 247
+        },
+        {
+          "name": "filename_prefix_prev",
+          "type": "STRING",
+          "link": 259,
+          "widget": {
+            "name": "filename_prefix_prev"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "videopath",
+          "type": "STRING",
+          "links": [],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "prefix",
+          "type": "STRING",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SimpleSaveVideoNode"
+      },
+      "widgets_values": [
+        "longlongcheck3",
+        "Downloads",
+        "None"
       ]
     }
   ],
   "links": [
-    [
-      110,
-      47,
-      0,
-      41,
-      2,
-      "STRING"
-    ],
     [
       115,
       41,
@@ -603,16 +2610,1023 @@
       52,
       0,
       "AUDIO"
+    ],
+    [
+      142,
+      54,
+      0,
+      55,
+      1,
+      "STYLE_GAN_MODEL"
+    ],
+    [
+      143,
+      54,
+      1,
+      55,
+      2,
+      "START"
+    ],
+    [
+      144,
+      54,
+      2,
+      55,
+      3,
+      "DURATION"
+    ],
+    [
+      145,
+      54,
+      3,
+      55,
+      4,
+      "SPEED_FPM"
+    ],
+    [
+      146,
+      54,
+      4,
+      55,
+      5,
+      "PULSE_PERCUSSIVE"
+    ],
+    [
+      147,
+      54,
+      5,
+      55,
+      6,
+      "PULSE_HARMONIC"
+    ],
+    [
+      148,
+      54,
+      6,
+      55,
+      7,
+      "PULSE_REACT"
+    ],
+    [
+      149,
+      54,
+      7,
+      55,
+      8,
+      "MOTION_HARMONIC"
+    ],
+    [
+      150,
+      54,
+      8,
+      55,
+      9,
+      "MOTION_PERCUSSIVE"
+    ],
+    [
+      151,
+      54,
+      9,
+      55,
+      10,
+      "MOTION_REACT"
+    ],
+    [
+      152,
+      54,
+      10,
+      55,
+      11,
+      "FPS"
+    ],
+    [
+      153,
+      55,
+      0,
+      56,
+      0,
+      "BYTESVID"
+    ],
+    [
+      158,
+      47,
+      0,
+      41,
+      2,
+      "STRING"
+    ],
+    [
+      160,
+      60,
+      0,
+      61,
+      1,
+      "STYLE_GAN_MODEL"
+    ],
+    [
+      161,
+      60,
+      1,
+      61,
+      2,
+      "START"
+    ],
+    [
+      162,
+      60,
+      2,
+      61,
+      3,
+      "DURATION"
+    ],
+    [
+      163,
+      60,
+      3,
+      61,
+      4,
+      "SPEED_FPM"
+    ],
+    [
+      164,
+      60,
+      4,
+      61,
+      5,
+      "PULSE_PERCUSSIVE"
+    ],
+    [
+      165,
+      60,
+      5,
+      61,
+      6,
+      "PULSE_HARMONIC"
+    ],
+    [
+      166,
+      60,
+      6,
+      61,
+      7,
+      "PULSE_REACT"
+    ],
+    [
+      167,
+      60,
+      7,
+      61,
+      8,
+      "MOTION_HARMONIC"
+    ],
+    [
+      168,
+      60,
+      8,
+      61,
+      9,
+      "MOTION_PERCUSSIVE"
+    ],
+    [
+      169,
+      60,
+      9,
+      61,
+      10,
+      "MOTION_REACT"
+    ],
+    [
+      170,
+      60,
+      10,
+      61,
+      11,
+      "FPS"
+    ],
+    [
+      171,
+      61,
+      0,
+      62,
+      0,
+      "BYTESVID"
+    ],
+    [
+      172,
+      60,
+      0,
+      54,
+      0,
+      "STYLE_GAN_MODEL"
+    ],
+    [
+      173,
+      60,
+      1,
+      54,
+      1,
+      "START"
+    ],
+    [
+      174,
+      60,
+      2,
+      54,
+      2,
+      "DURATION"
+    ],
+    [
+      175,
+      60,
+      3,
+      54,
+      3,
+      "SPEED_FPM"
+    ],
+    [
+      176,
+      60,
+      4,
+      54,
+      4,
+      "PULSE_PERCUSSIVE"
+    ],
+    [
+      177,
+      60,
+      5,
+      54,
+      5,
+      "PULSE_HARMONIC"
+    ],
+    [
+      178,
+      60,
+      6,
+      54,
+      6,
+      "PULSE_REACT"
+    ],
+    [
+      179,
+      60,
+      7,
+      54,
+      7,
+      "MOTION_HARMONIC"
+    ],
+    [
+      180,
+      60,
+      8,
+      54,
+      8,
+      "MOTION_PERCUSSIVE"
+    ],
+    [
+      181,
+      60,
+      9,
+      54,
+      9,
+      "MOTION_REACT"
+    ],
+    [
+      182,
+      60,
+      10,
+      54,
+      10,
+      "FPS"
+    ],
+    [
+      184,
+      62,
+      1,
+      56,
+      1,
+      "STRING"
+    ],
+    [
+      185,
+      63,
+      0,
+      64,
+      1,
+      "STYLE_GAN_MODEL"
+    ],
+    [
+      186,
+      63,
+      1,
+      64,
+      2,
+      "START"
+    ],
+    [
+      187,
+      63,
+      2,
+      64,
+      3,
+      "DURATION"
+    ],
+    [
+      188,
+      63,
+      3,
+      64,
+      4,
+      "SPEED_FPM"
+    ],
+    [
+      189,
+      63,
+      4,
+      64,
+      5,
+      "PULSE_PERCUSSIVE"
+    ],
+    [
+      190,
+      63,
+      5,
+      64,
+      6,
+      "PULSE_HARMONIC"
+    ],
+    [
+      191,
+      63,
+      6,
+      64,
+      7,
+      "PULSE_REACT"
+    ],
+    [
+      192,
+      63,
+      7,
+      64,
+      8,
+      "MOTION_HARMONIC"
+    ],
+    [
+      193,
+      63,
+      8,
+      64,
+      9,
+      "MOTION_PERCUSSIVE"
+    ],
+    [
+      194,
+      63,
+      9,
+      64,
+      10,
+      "MOTION_REACT"
+    ],
+    [
+      195,
+      63,
+      10,
+      64,
+      11,
+      "FPS"
+    ],
+    [
+      196,
+      64,
+      0,
+      65,
+      0,
+      "BYTESVID"
+    ],
+    [
+      198,
+      56,
+      1,
+      65,
+      1,
+      "STRING"
+    ],
+    [
+      199,
+      66,
+      0,
+      67,
+      1,
+      "STYLE_GAN_MODEL"
+    ],
+    [
+      200,
+      66,
+      1,
+      67,
+      2,
+      "START"
+    ],
+    [
+      201,
+      66,
+      2,
+      67,
+      3,
+      "DURATION"
+    ],
+    [
+      202,
+      66,
+      3,
+      67,
+      4,
+      "SPEED_FPM"
+    ],
+    [
+      203,
+      66,
+      4,
+      67,
+      5,
+      "PULSE_PERCUSSIVE"
+    ],
+    [
+      204,
+      66,
+      5,
+      67,
+      6,
+      "PULSE_HARMONIC"
+    ],
+    [
+      205,
+      66,
+      6,
+      67,
+      7,
+      "PULSE_REACT"
+    ],
+    [
+      206,
+      66,
+      7,
+      67,
+      8,
+      "MOTION_HARMONIC"
+    ],
+    [
+      207,
+      66,
+      8,
+      67,
+      9,
+      "MOTION_PERCUSSIVE"
+    ],
+    [
+      208,
+      66,
+      9,
+      67,
+      10,
+      "MOTION_REACT"
+    ],
+    [
+      209,
+      66,
+      10,
+      67,
+      11,
+      "FPS"
+    ],
+    [
+      210,
+      67,
+      0,
+      68,
+      0,
+      "BYTESVID"
+    ],
+    [
+      213,
+      65,
+      1,
+      68,
+      1,
+      "STRING"
+    ],
+    [
+      214,
+      54,
+      0,
+      63,
+      0,
+      "STYLE_GAN_MODEL"
+    ],
+    [
+      215,
+      54,
+      1,
+      63,
+      1,
+      "START"
+    ],
+    [
+      216,
+      54,
+      2,
+      63,
+      2,
+      "DURATION"
+    ],
+    [
+      217,
+      54,
+      3,
+      63,
+      3,
+      "SPEED_FPM"
+    ],
+    [
+      218,
+      54,
+      5,
+      63,
+      5,
+      "PULSE_HARMONIC"
+    ],
+    [
+      219,
+      54,
+      4,
+      63,
+      4,
+      "PULSE_PERCUSSIVE"
+    ],
+    [
+      220,
+      54,
+      7,
+      63,
+      7,
+      "MOTION_HARMONIC"
+    ],
+    [
+      221,
+      54,
+      6,
+      63,
+      6,
+      "PULSE_REACT"
+    ],
+    [
+      222,
+      54,
+      8,
+      63,
+      8,
+      "MOTION_PERCUSSIVE"
+    ],
+    [
+      223,
+      54,
+      9,
+      63,
+      9,
+      "MOTION_REACT"
+    ],
+    [
+      224,
+      54,
+      10,
+      63,
+      10,
+      "FPS"
+    ],
+    [
+      225,
+      63,
+      0,
+      66,
+      0,
+      "STYLE_GAN_MODEL"
+    ],
+    [
+      226,
+      63,
+      1,
+      66,
+      1,
+      "START"
+    ],
+    [
+      227,
+      63,
+      2,
+      66,
+      2,
+      "DURATION"
+    ],
+    [
+      228,
+      63,
+      3,
+      66,
+      3,
+      "SPEED_FPM"
+    ],
+    [
+      229,
+      63,
+      4,
+      66,
+      4,
+      "PULSE_PERCUSSIVE"
+    ],
+    [
+      230,
+      63,
+      5,
+      66,
+      5,
+      "PULSE_HARMONIC"
+    ],
+    [
+      231,
+      63,
+      6,
+      66,
+      6,
+      "PULSE_REACT"
+    ],
+    [
+      232,
+      63,
+      7,
+      66,
+      7,
+      "MOTION_HARMONIC"
+    ],
+    [
+      233,
+      63,
+      8,
+      66,
+      8,
+      "MOTION_PERCUSSIVE"
+    ],
+    [
+      234,
+      63,
+      9,
+      66,
+      9,
+      "MOTION_REACT"
+    ],
+    [
+      235,
+      63,
+      10,
+      66,
+      10,
+      "FPS"
+    ],
+    [
+      236,
+      69,
+      0,
+      70,
+      1,
+      "STYLE_GAN_MODEL"
+    ],
+    [
+      237,
+      69,
+      1,
+      70,
+      2,
+      "START"
+    ],
+    [
+      238,
+      69,
+      2,
+      70,
+      3,
+      "DURATION"
+    ],
+    [
+      239,
+      69,
+      3,
+      70,
+      4,
+      "SPEED_FPM"
+    ],
+    [
+      240,
+      69,
+      4,
+      70,
+      5,
+      "PULSE_PERCUSSIVE"
+    ],
+    [
+      241,
+      69,
+      5,
+      70,
+      6,
+      "PULSE_HARMONIC"
+    ],
+    [
+      242,
+      69,
+      6,
+      70,
+      7,
+      "PULSE_REACT"
+    ],
+    [
+      243,
+      69,
+      7,
+      70,
+      8,
+      "MOTION_HARMONIC"
+    ],
+    [
+      244,
+      69,
+      8,
+      70,
+      9,
+      "MOTION_PERCUSSIVE"
+    ],
+    [
+      245,
+      69,
+      9,
+      70,
+      10,
+      "MOTION_REACT"
+    ],
+    [
+      246,
+      69,
+      10,
+      70,
+      11,
+      "FPS"
+    ],
+    [
+      247,
+      70,
+      0,
+      71,
+      0,
+      "BYTESVID"
+    ],
+    [
+      248,
+      66,
+      0,
+      69,
+      0,
+      "STYLE_GAN_MODEL"
+    ],
+    [
+      249,
+      66,
+      1,
+      69,
+      1,
+      "START"
+    ],
+    [
+      250,
+      66,
+      2,
+      69,
+      2,
+      "DURATION"
+    ],
+    [
+      251,
+      66,
+      3,
+      69,
+      3,
+      "SPEED_FPM"
+    ],
+    [
+      252,
+      66,
+      4,
+      69,
+      4,
+      "PULSE_PERCUSSIVE"
+    ],
+    [
+      253,
+      66,
+      5,
+      69,
+      5,
+      "PULSE_HARMONIC"
+    ],
+    [
+      254,
+      66,
+      6,
+      69,
+      6,
+      "PULSE_REACT"
+    ],
+    [
+      255,
+      66,
+      7,
+      69,
+      7,
+      "MOTION_HARMONIC"
+    ],
+    [
+      256,
+      66,
+      8,
+      69,
+      8,
+      "MOTION_PERCUSSIVE"
+    ],
+    [
+      257,
+      66,
+      9,
+      69,
+      9,
+      "MOTION_REACT"
+    ],
+    [
+      258,
+      66,
+      10,
+      69,
+      10,
+      "FPS"
+    ],
+    [
+      259,
+      68,
+      1,
+      71,
+      1,
+      "STRING"
+    ],
+    [
+      261,
+      59,
+      0,
+      72,
+      0,
+      "*"
+    ],
+    [
+      262,
+      72,
+      0,
+      61,
+      0,
+      "AUDIO"
+    ],
+    [
+      267,
+      72,
+      0,
+      73,
+      0,
+      "*"
+    ],
+    [
+      268,
+      73,
+      0,
+      55,
+      0,
+      "AUDIO"
+    ],
+    [
+      269,
+      73,
+      0,
+      74,
+      0,
+      "*"
+    ],
+    [
+      270,
+      74,
+      0,
+      64,
+      0,
+      "AUDIO"
+    ],
+    [
+      271,
+      74,
+      0,
+      75,
+      0,
+      "*"
+    ],
+    [
+      272,
+      75,
+      0,
+      67,
+      0,
+      "AUDIO"
+    ],
+    [
+      273,
+      75,
+      0,
+      76,
+      0,
+      "*"
+    ],
+    [
+      274,
+      76,
+      0,
+      70,
+      0,
+      "AUDIO"
+    ],
+    [
+      275,
+      61,
+      1,
+      55,
+      12,
+      "STRING"
+    ],
+    [
+      276,
+      55,
+      1,
+      64,
+      12,
+      "STRING"
+    ],
+    [
+      277,
+      64,
+      1,
+      67,
+      12,
+      "STRING"
+    ],
+    [
+      278,
+      67,
+      1,
+      70,
+      12,
+      "STRING"
     ]
   ],
-  "groups": [],
+  "groups": [
+    {
+      "title": "Sample tester",
+      "bounding": [
+        -227,
+        -98,
+        2343,
+        1525
+      ],
+      "color": "#8A8",
+      "font_size": 24
+    },
+    {
+      "title": "Generate full song",
+      "bounding": [
+        -246,
+        1643,
+        2761,
+        1380
+      ],
+      "color": "#3f789e",
+      "font_size": 24
+    }
+  ],
   "config": {},
   "extra": {
     "ds": {
-      "scale": 0.6209213230591555,
+      "scale": 0.1948717100000031,
       "offset": [
-        137.97370827374039,
-        101.46561276357772
+        2460.485570159663,
+        423.0990052273367
       ]
     }
   },
