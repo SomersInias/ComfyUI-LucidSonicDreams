@@ -1,6 +1,6 @@
 import requests
 
-Stylegan2ModelList= ["/content/drive/MyDrive/sonic/iniasstylefinal.pkl", "/content/drive/MyDrive/sonic/DorfinalModel.pkl", "/content/drive/MyDrive/sonic/VisionaryArtm.pkl", "/content/drive/MyDrive/sonic/wikiart.pkl" , "/content/drive/MyDrive/wikiart.pkl"]
+Stylegan2ModelList= ["/content/drive/MyDrive/sonic/iniasstylefinal.pkl", "/content/drive/MyDrive/sonic/DorfinalModel.pkl", "/content/drive/MyDrive/sonic/VisionaryArtm.pkl", "/content/drive/MyDrive/sonic/IniasSpiritlastwith3dneon.pkl", "/content/drive/MyDrive/sonic/currentlastspiritinias.pkl", "/content/drive/MyDrive/sonic/wikiart.pkl" , "/content/drive/MyDrive/wikiart.pkl"]
 
 class InputParamLucid:
     @classmethod
