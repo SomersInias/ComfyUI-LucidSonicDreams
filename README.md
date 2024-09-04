@@ -59,7 +59,7 @@ Here are some screenshots and videos of the workflow working within ComfyUI (not
 ![Screenshot of group2 of the workflow](samples/fullworkflowscreenshot.png)
 
 #### Video showcase result
-![Screenshot of group2 of the workflow](samples/videoshowcase1.mp4)
+[![Screenshot of group2 of the workflow](samples/workflowgroup1screenshot.png)](samples/videoshowcase1.mp4)
 
 #### Video generating video sample (note this video is fast forward, long videos take couple of minutes to generate)
 ![Screenshot of group2 of the workflow](samples/videoshowcase2.mp4)
