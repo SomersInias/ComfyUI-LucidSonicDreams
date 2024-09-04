@@ -45,9 +45,23 @@ Before running the workflow, you need to set up the API:
 
 Feel free to experiment with all the different parameters inside the nodes.
 
-### Demonstration
-Here is a video of the integration working within ComfyUI (note that this setup also utilizes three other custom nodes from the ComfyUI community):
 
-[Video Link]
+#### Showcase
+Here are some screenshots and videos of the workflow working within ComfyUI (note that this setup also utilizes three other custom nodes from the ComfyUI community):
+
+#### Group 1 of workflow
+![Screenshot of group1 of the workflow](samples/workflowgroup1screenshot.png)
+
+#### Group 2 of workflow generating full song
+![Screenshot of group2 of the workflow](samples/workflowgroup2screenshot.png)
+
+#### Full workflow 
+![Screenshot of group2 of the workflow](samples/fullworkflowscreenshot.png)
+
+#### Video showcase result
+![Screenshot of group2 of the workflow](samples/videoshowcase1.mp4)
+
+#### Video generating video sample (note this video is fast forward, long videos take couple of minutes to generate)
+![Screenshot of group2 of the workflow](samples/videoshowcase2.mp4)
 
 
