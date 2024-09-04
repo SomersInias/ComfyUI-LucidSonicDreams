@@ -46,7 +46,7 @@ Before running the workflow, you need to set up the API:
 Feel free to experiment with all the different parameters inside the nodes.
 
 
-#### Showcase
+## Showcase
 Here are some screenshots and videos of the workflow working within ComfyUI (note that this setup also utilizes three other custom nodes from the ComfyUI community):
 
 #### Group 1 of workflow
