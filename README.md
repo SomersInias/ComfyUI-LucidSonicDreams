@@ -1,6 +1,6 @@
 # ComfyUI-LucidSonicDreams
 
-This project is a test and practice environment created to understand the process of developing custom nodes for [ComfyUI](https://github.com/comfyanonymous/ComfyUI) while integrating them with something I really like and that is [Lucid Sonic Dreams](https://github.com/mikael-alafriz-deel/lucid-sonic-dreams). Lucid Sonic Dreams is a tool that generates mesmerizing music videos by syncing visuals with audio, and I wanted to integrate its functionality within ComfyUI. 
+This project is a test and practice environment created to understand the process of developing custom nodes for [ComfyUI](https://github.com/comfyanonymous/ComfyUI) while integrating them with something I really like and that is [Lucid Sonic Dreams](https://github.com/mikael-alafriz-deel/lucid-sonic-dreams). Lucid Sonic Dreams syncs GAN-generated visuals to music, and I wanted to integrate its functionality within ComfyUI. 
 
 ## Project Overview
 
